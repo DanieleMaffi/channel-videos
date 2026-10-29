@@ -1,4 +1,4 @@
-ata (9.3 kB)
+ta (9.3 kB)
 Collecting joblib>=1.0 (from librosa>=0.11.0->coqui-tts)
   Downloading joblib-1.6.0-py3-none-any.whl.metadata (6.5 kB)
 Collecting decorator>=4.3.0 (from librosa>=0.11.0->coqui-tts)
@@ -90,16 +90,16 @@ Collecting pygments<3.0.0,>=2.13.0 (from rich>=13.8.0->typer->transformers>=4.57
 Collecting mdurl~=0.1 (from markdown-it-py>=2.2.0->rich>=13.8.0->typer->transformers>=4.57->coqui-tts)
   Downloading mdurl-0.1.2-py3-none-any.whl.metadata (1.6 kB)
 Downloading coqui_tts-0.28.0-py3-none-any.whl (850 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 850.2/850.2 kB 38.2 MB/s  0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 850.2/850.2 kB 67.2 MB/s  0:00:00
 Downloading coqpit_config-0.2.5-py3-none-any.whl (15 kB)
 Downloading coqui_tts_trainer-0.4.0-py3-none-any.whl (54 kB)
 Downloading soundfile-0.14.0-py2.py3-none-manylinux_2_28_x86_64.whl (1.3 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 83.7 MB/s  0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 163.3 MB/s  0:00:00
 Downloading anyascii-0.3.3-py3-none-any.whl (345 kB)
 Downloading cffi-2.1.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (217 kB)
 Downloading einops-0.8.2-py3-none-any.whl (65 kB)
 Downloading aiohttp-3.14.5-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (1.9 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.9/1.9 MB 231.3 MB/s  0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.9/1.9 MB 285.9 MB/s  0:00:00
 Downloading multidict-7.2.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (510 kB)
 Downloading yarl-1.25.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (117 kB)
 Downloading aiohappyeyeballs-2.7.1-py3-none-any.whl (15 kB)
@@ -107,10 +107,10 @@ Downloading aiosignal-1.4.0-py3-none-any.whl (7.5 kB)
 Downloading attrs-26.1.0-py3-none-any.whl (67 kB)
 Downloading frozenlist-1.8.0-cp311-cp311-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (231 kB)
 Downloading huggingface_hub-2.4.0-py3-none-any.whl (857 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 857.0/857.0 kB 131.7 MB/s  0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 857.0/857.0 kB 189.4 MB/s  0:00:00
 Downloading click-8.5.0-py3-none-any.whl (125 kB)
 Downloading hf_xet-1.7.1-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (4.2 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.2/4.2 MB 118.8 MB/s  0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.2/4.2 MB 342.6 MB/s  0:00:00
 Downloading httpx2-2.16.0-py3-none-any.whl (97 kB)
 Downloading httpcore2-2.16.0-py3-none-any.whl (85 kB)
 Downloading anyio-4.15.1-py3-none-any.whl (132 kB)
@@ -118,7 +118,7 @@ Downloading h11-0.16.0-py3-none-any.whl (37 kB)
 Downloading idna-3.20-py3-none-any.whl (69 kB)
 Downloading inflect-7.6.0-py3-none-any.whl (37 kB)
 Downloading ko_speech_tools-0.1.1-py3-none-any.whl (997 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 997.7/997.7 kB 76.2 MB/s  0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 997.7/997.7 kB 195.0 MB/s  0:00:00
 Downloading librosa-0.11.0-py3-none-any.whl (260 kB)
 Downloading audioread-3.1.0-py3-none-any.whl (23 kB)
 Downloading decorator-5.3.1-py3-none-any.whl (10 kB)
@@ -126,27 +126,27 @@ Downloading joblib-1.6.0-py3-none-any.whl (306 kB)
 Downloading cloudpickle-3.1.2-py3-none-any.whl (22 kB)
 Downloading lazy_loader-0.6-py3-none-any.whl (8.8 kB)
 Downloading matplotlib-3.11.2-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (9.9 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9.9/9.9 MB 160.7 MB/s  0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9.9/9.9 MB 318.4 MB/s  0:00:00
 Downloading contourpy-1.3.3-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (355 kB)
 Downloading cycler-0.12.1-py3-none-any.whl (8.3 kB)
 Downloading fonttools-4.68.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (5.5 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.5/5.5 MB 145.6 MB/s  0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.5/5.5 MB 328.3 MB/s  0:00:00
 Downloading kiwisolver-1.5.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (1.4 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.4/1.4 MB 256.1 MB/s  0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.4/1.4 MB 249.3 MB/s  0:00:00
 Downloading monotonic_alignment_search-0.2.2-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (686 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 686.7/686.7 kB 165.0 MB/s  0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 686.7/686.7 kB 112.4 MB/s  0:00:00
 Downloading more_itertools-11.2.1-py3-none-any.whl (74 kB)
 Downloading msgpack-1.2.4-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (480 kB)
 Downloading num2words-0.5.14-py3-none-any.whl (163 kB)
 Downloading numba-0.68.1-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (3.8 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.8/3.8 MB 137.9 MB/s  0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.8/3.8 MB 103.7 MB/s  0:00:00
 Downloading llvmlite-0.50.0-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (59.7 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 59.7/59.7 MB 114.6 MB/s  0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 59.7/59.7 MB 168.3 MB/s  0:00:00
 Downloading numpy-2.4.6-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (16.9 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.9/16.9 MB 140.2 MB/s  0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.9/16.9 MB 52.5 MB/s  0:00:00
 Downloading packaging-26.3-py3-none-any.whl (129 kB)
 Downloading pillow-13.0.0-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (7.1 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7.1/7.1 MB 99.9 MB/s  0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7.1/7.1 MB 51.4 MB/s  0:00:00
 Downloading pooch-1.9.0-py3-none-any.whl (67 kB)
 Downloading platformdirs-4.14.0-py3-none-any.whl (35 kB)
 Downloading propcache-0.5.4-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (235 kB)
@@ -155,35 +155,35 @@ Downloading pyparsing-3.3.3-py3-none-any.whl (126 kB)
 Downloading pysbd-0.3.4-py3-none-any.whl (71 kB)
 Downloading python_dateutil-3.0.0-py2.py3-none-any.whl (94 kB)
 Downloading pyyaml-6.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (806 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 806.6/806.6 kB 172.2 MB/s  0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 806.6/806.6 kB 156.3 MB/s  0:00:00
 Downloading requests-2.34.2-py3-none-any.whl (73 kB)
 Downloading charset_normalizer-3.5.2-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (269 kB)
 Downloading urllib3-2.8.0-py3-none-any.whl (135 kB)
 Downloading certifi-2026.10.23-py3-none-any.whl (135 kB)
 Downloading scikit_learn-1.9.1-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (9.3 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9.3/9.3 MB 122.0 MB/s  0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9.3/9.3 MB 228.9 MB/s  0:00:00
 Downloading narwhals-2.28.0-py3-none-any.whl (490 kB)
 Downloading scipy-1.17.1-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (35.3 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 35.3/35.3 MB 122.3 MB/s  0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 35.3/35.3 MB 336.3 MB/s  0:00:00
 Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)
 Downloading soxr-1.1.0-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (245 kB)
 Downloading tensorboard-2.21.0-py3-none-any.whl (5.5 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.5/5.5 MB 155.6 MB/s  0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.5/5.5 MB 318.0 MB/s  0:00:00
 Downloading grpcio-1.85.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (7.4 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7.4/7.4 MB 154.0 MB/s  0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7.4/7.4 MB 333.3 MB/s  0:00:00
 Downloading protobuf-7.36.2-cp310-abi3-manylinux2014_x86_64.whl (343 kB)
 Downloading tensorboard_data_server-0.7.2-py3-none-manylinux_2_31_x86_64.whl (6.6 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.6/6.6 MB 157.7 MB/s  0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.6/6.6 MB 328.0 MB/s  0:00:00
 Downloading absl_py-2.5.1-py3-none-any.whl (137 kB)
 Downloading markdown-3.11.2-py3-none-any.whl (114 kB)
 Downloading threadpoolctl-3.7.0-py3-none-any.whl (26 kB)
 Downloading tqdm-4.70.1-py3-none-any.whl (80 kB)
 Downloading transformers-5.22.0-py3-none-any.whl (13.1 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 13.1/13.1 MB 137.9 MB/s  0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 13.1/13.1 MB 152.6 MB/s  0:00:00
 Downloading tokenizers-0.23.3-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.4 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.4/3.4 MB 218.7 MB/s  0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.4/3.4 MB 298.8 MB/s  0:00:00
 Downloading regex-2026.9.29-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (804 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 805.0/805.0 kB 163.8 MB/s  0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 805.0/805.0 kB 170.7 MB/s  0:00:00
 Downloading safetensors-0.8.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (516 kB)
 Downloading truststore-0.10.5-py3-none-any.whl (19 kB)
 Downloading typeguard-4.6.0-py3-none-any.whl (36 kB)
@@ -194,7 +194,7 @@ Downloading typer-0.27.3-py3-none-any.whl (123 kB)
 Downloading annotated_doc-0.0.5-py3-none-any.whl (5.3 kB)
 Downloading rich-15.0.0-py3-none-any.whl (310 kB)
 Downloading pygments-2.21.0-py3-none-any.whl (1.3 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 234.3 MB/s  0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 222.6 MB/s  0:00:00
 Downloading markdown_it_py-4.2.0-py3-none-any.whl (91 kB)
 Downloading mdurl-0.1.2-py3-none-any.whl (10.0 kB)
 Downloading shellingham-1.5.4-py2.py3-none-any.whl (9.8 kB)
@@ -202,7 +202,7 @@ Downloading tzdata-2026.6-py2.py3-none-any.whl (348 kB)
 Building wheels for collected packages: docopt
   Building wheel for docopt (pyproject.toml): started
   Building wheel for docopt (pyproject.toml): finished with status 'done'
-  Created wheel for docopt: filename=docopt-0.6.2-py2.py3-none-any.whl size=13781 sha256=d0ba3d1dc51cc535b949e3729ccb8700c8db4cc0e5fd85165f8f673c3e426391
+  Created wheel for docopt: filename=docopt-0.6.2-py2.py3-none-any.whl size=13781 sha256=39add1fd39dd36a426b93f8d0e2f848d51344e690ecd3b1c06683a1a5d6c5589
   Stored in directory: /home/runner/.cache/pip/wheels/1a/b0/8c/4b75c4116c31f83c8f9f047231251e13cc74481cca4a78a9ce
 Successfully built docopt
 Installing collected packages: docopt, werkzeug, urllib3, tzdata, typeguard, truststore, tqdm, threadpoolctl, tensorboard-data-server, six, shellingham, safetensors, regex, pyyaml, pysbd, pyparsing, pygments, pycparser, psutil, protobuf, propcache, platformdirs, pillow, packaging, numpy, num2words, narwhals, multidict, msgpack, more_itertools, mdurl, markdown, llvmlite, ko-speech-tools, kiwisolver, idna, hf-xet, h11, grpcio, frozenlist, fonttools, einops, decorator, cycler, coqpit-config, cloudpickle, click, charset_normalizer, certifi, audioread, attrs, anyascii, annotated-doc, aiohappyeyeballs, absl-py, yarl, tensorboard, soxr, scipy, requests, python-dateutil, numba, monotonic-alignment-search, markdown-it-py, lazy_loader, joblib, jaraco.functools, httpcore2, contourpy, cffi, anyio, aiosignal, soundfile, scikit-learn, rich, pooch, matplotlib, inflect, httpx2, coqui-tts-trainer, aiohttp, typer, librosa, huggingface-hub, tokenizers, transformers, coqui-tts

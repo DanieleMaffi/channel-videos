@@ -1,19 +1,1 @@
-generating sample-Aaron_Dreschner xtts
-Fetching 9 files:   0%|          | 0/9 [00:00<?, ?it/s]Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
-Fetching 9 files:  22%|██▏       | 2/9 [00:00<00:00, 19.47it/s]Fetching 9 files:  78%|███████▊  | 7/9 [00:00<00:00, 12.38it/s]Fetching 9 files: 100%|██████████| 9/9 [00:16<00:00,  2.54s/it]Fetching 9 files: 100%|██████████| 9/9 [00:16<00:00,  1.85s/it]
-[transformers] Model config: bos_token_id must be `None` or an integer within the vocabulary (between 0 and 255), got 50256. This may result in unexpected behavior.
-[transformers] Model config: eos_token_id must be `None` or an integer within the vocabulary (between 0 and 255), got 50256. This may result in unexpected behavior.
-[transformers] Model config: bos_token_id must be `None` or an integer within the vocabulary (between 0 and 607), got 50256. This may result in unexpected behavior.
-[transformers] Model config: eos_token_id must be `None` or an integer within the vocabulary (between 0 and 607), got 50256. This may result in unexpected behavior.
-generating sample-Ana_Florence xtts
-generating sample-Andrew_Chipper xtts
-generating sample-Baldur_Sanjin xtts
-generating sample-Claribel_Dervla xtts
-generating sample-Craig_Gutsy xtts
-generating sample-Daisy_Studious xtts
-generating sample-Gracie_Wise xtts
-generating sample-Kumar_Dahl xtts
-generating sample-Luis_Moray xtts
-generating sample-Royston_Min xtts
-generating sample-Viktor_Eka xtts
-jobs done: 12
+jobs done: 0
