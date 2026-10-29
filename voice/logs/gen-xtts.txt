@@ -1,0 +1,15 @@
+generating moon-test xtts
+Traceback (most recent call last):
+  File "/home/runner/work/channel-videos/channel-videos/voice/gen.py", line 57, in <module>
+    run_xtts(lines, outdir, meta.get('speaker', 'Damien Black'))
+  File "/home/runner/work/channel-videos/channel-videos/voice/gen.py", line 29, in run_xtts
+    from TTS.api import TTS
+  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/TTS/__init__.py", line 27, in <module>
+    raise ImportError(TORCHCODEC_IMPORT_ERROR)
+ImportError: 
+From Pytorch 2.9, the torchcodec library is required for audio IO, but it was not
+found in your environment. You can install it with Coqui's `codec` extra:
+```
+pip install coqui-tts[codec]
+```
+
