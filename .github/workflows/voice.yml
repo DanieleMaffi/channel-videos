@@ -24,8 +24,12 @@ jobs:
         run: |
           mkdir -p voice/logs
           sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg > /dev/null
-          pip install -q torch torchaudio --index-url https://download.pytorch.org/whl/cpu > voice/logs/install-${{ matrix.engine }}.txt 2>&1
-          if [ "${{ matrix.engine }}" = "xtts" ]; then pip install coqui-tts soundfile >> voice/logs/install-xtts.txt 2>&1; else pip install f5-tts soundfile >> voice/logs/install-f5.txt 2>&1; fi
+          # torch 2.8 (2.9+ needs torchcodec, which does not load on the runners)
+          printf 'torch==2.8.0\ntorchaudio==2.8.0\n' > /tmp/pin.txt
+          pip install -q torch==2.8.0 torchaudio==2.8.0 --index-url https://download.pytorch.org/whl/cpu > voice/logs/install-${{ matrix.engine }}.txt 2>&1
+          if [ "${{ matrix.engine }}" = "xtts" ]; then pip install -c /tmp/pin.txt coqui-tts soundfile >> voice/logs/install-xtts.txt 2>&1; else pip install -c /tmp/pin.txt f5-tts soundfile >> voice/logs/install-f5.txt 2>&1; fi
+          pip uninstall -y torchcodec >> voice/logs/install-${{ matrix.engine }}.txt 2>&1 || true
+          python -c "import torch, torchaudio; print('torch', torch.__version__, 'torchaudio', torchaudio.__version__)" | tee -a voice/logs/install-${{ matrix.engine }}.txt
           tail -30 voice/logs/install-${{ matrix.engine }}.txt
       - name: Generate
         env:
