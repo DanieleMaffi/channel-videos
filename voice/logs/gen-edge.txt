@@ -1,0 +1,7 @@
+generating sample-edge edge-en-US-AndrewMultilingualNeural
+generating sample-edge edge-en-US-BrianMultilingualNeural
+generating sample-edge edge-en-GB-RyanNeural
+generating sample-edge edge-en-US-ChristopherNeural
+generating sample-edge edge-en-US-AvaMultilingualNeural
+generating sample-edge edge-en-US-EmmaMultilingualNeural
+jobs done: 6
