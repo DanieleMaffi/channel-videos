@@ -1,0 +1,6 @@
+engine: xtts, f5
+speaker: Damien Black
+01|How far away is the Moon, really?
+02|Start with size. The Moon is just over a quarter as wide as Earth.
+03|Now the gap. About thirty Earths would fit between us.
+04|And light? It makes the trip in about one point three seconds.
