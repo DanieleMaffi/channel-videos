@@ -44,16 +44,52 @@ def run_f5(lines, outdir):
                         '--gen_text', t, '--output_dir', outdir, '--output_file', f'{i}.wav', '--remove_silence'], check=True)
 
 cb = None
+asr = None
+def words(t):
+    import re
+    from num2words import num2words
+    t = re.sub(r'(\d+(?:\.\d+)?)', lambda m: ' ' + num2words(float(m.group(1)) if '.' in m.group(1) else int(m.group(1))) + ' ', t.lower().replace(',', ''))
+    return re.sub(r"[^a-z' ]+", ' ', t.replace('-', ' ')).split()
+
+def heard_score(path, text):
+    # Transcribe the take and compare it with the script, so stumbles, slurs and skipped words are caught.
+    global asr
+    import difflib
+    from faster_whisper import WhisperModel
+    if asr is None:
+        asr = WhisperModel('base.en', device='cpu', compute_type='int8')
+    segs, _ = asr.transcribe(path, beam_size=5, language='en')
+    heard = ' '.join(s.text for s in segs)
+    return difflib.SequenceMatcher(None, words(text), words(heard)).ratio(), heard
+
 def run_chatterbox(lines, outdir, ref, exag):
     global cb
-    import torchaudio
+    import shutil, torchaudio
     from chatterbox.tts import ChatterboxTTS
     if cb is None:
         cb = ChatterboxTTS.from_pretrained(device='cpu')
     prompt = None if ref == 'default' else f'voice/ref/{ref}.wav'
+    report = []
     for i, t in lines:
-        wav = cb.generate(t, audio_prompt_path=prompt, exaggeration=exag, cfg_weight=0.5)
-        torchaudio.save(os.path.join(outdir, f'{i}.wav'), wav, cb.sr)
+        best = (-1, None, '')
+        for attempt in range(4):   # up to 4 takes, keep the clearest one
+            tmp = os.path.join(outdir, f'{i}.take{attempt}.wav')
+            wav = cb.generate(t, audio_prompt_path=prompt, exaggeration=exag, cfg_weight=0.5)
+            torchaudio.save(tmp, wav, cb.sr)
+            try:
+                score, heard = heard_score(tmp, t)
+            except Exception as e:
+                score, heard = 0.0, 'check failed: ' + repr(e)
+            print(f'  {i} take {attempt + 1}: {score:.2f}  heard: {heard.strip()}', flush=True)
+            if score > best[0]:
+                best = (score, tmp, heard)
+            if score >= 0.92:
+                break
+        shutil.copy(best[1], os.path.join(outdir, f'{i}.wav'))
+        for f in glob.glob(os.path.join(outdir, f'{i}.take*.wav')):
+            os.remove(f)
+        report.append(f'{i}|{best[0]:.2f}|{best[2].strip()}')
+    open(os.path.join(outdir, 'check.txt'), 'w', encoding='utf-8').write('\n'.join(report) + '\n')
 
 def run_edge(lines, outdir, voice):
     for i, t in lines:
@@ -71,6 +107,8 @@ def targets(eng, meta):
         return [('edge-' + v.strip(), v.strip()) for v in meta.get('voices', 'en-US-AndrewMultilingualNeural').split(',')]
     return [(eng, None)]
 
+CHECK_ONLY = len(sys.argv) > 1 and sys.argv[1] == '--pending'   # prints how many outputs are missing, generates nothing
+pending = 0
 done = 0
 for req in sorted(glob.glob('voice/requests/*.txt')):
     name = os.path.splitext(os.path.basename(req))[0]
@@ -83,6 +121,9 @@ for req in sorted(glob.glob('voice/requests/*.txt')):
       for sub, arg in targets(eng, meta):
         outdir = os.path.join('voice', 'out', name, sub)
         if os.path.isdir(outdir) and len(glob.glob(os.path.join(outdir, '*.wav'))) >= len(lines):
+            continue
+        pending += 1
+        if CHECK_ONLY:
             continue
         os.makedirs(outdir, exist_ok=True)
         print('generating', name, sub, flush=True)
@@ -98,4 +139,7 @@ for req in sorted(glob.glob('voice/requests/*.txt')):
             done += 1
         except Exception as e:
             print('FAILED', name, sub, repr(e), flush=True)
+if CHECK_ONLY:
+    print(pending)
+    sys.exit(0)
 print('jobs done:', done)

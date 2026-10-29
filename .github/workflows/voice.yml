@@ -20,7 +20,20 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+      - name: Anything to do?
+        id: check
+        env:
+          ONLY_ENGINE: ${{ matrix.engine }}
+        run: echo "n=$(python voice/gen.py --pending)" | tee -a $GITHUB_OUTPUT
+      - uses: actions/cache@v4
+        if: steps.check.outputs.n != '0'
+        with:
+          path: |
+            ~/.cache/pip
+            ~/.cache/huggingface
+          key: voice-${{ matrix.engine }}-v1
       - name: Install (CPU)
+        if: steps.check.outputs.n != '0'
         run: |
           mkdir -p voice/logs
           sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg > /dev/null
@@ -30,19 +43,20 @@ jobs:
           case "${{ matrix.engine }}" in
             xtts) pip install -c /tmp/pin.txt coqui-tts soundfile >> voice/logs/install-xtts.txt 2>&1 ;;
             f5) pip install -c /tmp/pin.txt f5-tts soundfile >> voice/logs/install-f5.txt 2>&1 ;;
-            chatterbox) pip install chatterbox-tts --extra-index-url https://download.pytorch.org/whl/cpu >> voice/logs/install-chatterbox.txt 2>&1 ;;
+            chatterbox) pip install chatterbox-tts faster-whisper num2words --extra-index-url https://download.pytorch.org/whl/cpu >> voice/logs/install-chatterbox.txt 2>&1 ;;
             edge) pip install edge-tts >> voice/logs/install-edge.txt 2>&1 ;;
           esac
           pip uninstall -y torchcodec >> voice/logs/install-${{ matrix.engine }}.txt 2>&1 || true
           [ "${{ matrix.engine }}" = edge ] || python -c "import torch, torchaudio; print('torch', torch.__version__, 'torchaudio', torchaudio.__version__)" | tee -a voice/logs/install-${{ matrix.engine }}.txt
           tail -30 voice/logs/install-${{ matrix.engine }}.txt
       - name: Generate
+        if: steps.check.outputs.n != '0'
         env:
           COQUI_TOS_AGREED: '1'
           ONLY_ENGINE: ${{ matrix.engine }}
         run: python voice/gen.py > voice/logs/gen-${{ matrix.engine }}.txt 2>&1
       - name: Save the voice files and logs
-        if: always()
+        if: always() && steps.check.outputs.n != '0'
         run: |
           for f in voice/logs/*.txt; do tail -c 20000 "$f" > "$f.tail" && mv "$f.tail" "$f"; done
           git config user.name voice-bot
