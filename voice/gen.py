@@ -44,6 +44,9 @@ for req in sorted(glob.glob('voice/requests/*.txt')):
     name = os.path.splitext(os.path.basename(req))[0]
     meta, lines = parse(req)
     engines = [e.strip() for e in meta.get('engine', 'xtts').split(',')]
+    only = os.environ.get('ONLY_ENGINE')
+    if only:
+        engines = [e for e in engines if e == only]
     for eng in engines:
         outdir = os.path.join('voice', 'out', name, eng if eng != 'xtts' else 'xtts-' + meta.get('speaker', 'Damien Black').replace(' ', '_'))
         if os.path.isdir(outdir) and len(glob.glob(os.path.join(outdir, '*.wav'))) >= len(lines):

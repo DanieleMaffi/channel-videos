@@ -1,7 +1,7 @@
 name: voice
 on:
   push:
-    paths: ['voice/requests/**']
+    paths: ['voice/requests/**', '.github/workflows/voice.yml', 'voice/gen.py']
   workflow_dispatch:
 permissions:
   contents: write
@@ -9,7 +9,12 @@ concurrency: voice
 jobs:
   tts:
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 75
+    strategy:
+      fail-fast: false
+      max-parallel: 1
+      matrix:
+        engine: [xtts, f5]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -17,16 +22,21 @@ jobs:
           python-version: '3.11'
       - name: Install (CPU)
         run: |
-          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
-          pip install -q torch torchaudio --index-url https://download.pytorch.org/whl/cpu
-          pip install -q coqui-tts f5-tts soundfile
+          mkdir -p voice/logs
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg > /dev/null
+          pip install -q torch torchaudio --index-url https://download.pytorch.org/whl/cpu > voice/logs/install-${{ matrix.engine }}.txt 2>&1
+          if [ "${{ matrix.engine }}" = "xtts" ]; then pip install coqui-tts soundfile >> voice/logs/install-xtts.txt 2>&1; else pip install f5-tts soundfile >> voice/logs/install-f5.txt 2>&1; fi
+          tail -30 voice/logs/install-${{ matrix.engine }}.txt
       - name: Generate
         env:
           COQUI_TOS_AGREED: '1'
-        run: python voice/gen.py
-      - name: Save the voice files
+          ONLY_ENGINE: ${{ matrix.engine }}
+        run: python voice/gen.py > voice/logs/gen-${{ matrix.engine }}.txt 2>&1
+      - name: Save the voice files and logs
+        if: always()
         run: |
+          for f in voice/logs/*.txt; do tail -c 20000 "$f" > "$f.tail" && mv "$f.tail" "$f"; done
           git config user.name voice-bot
           git config user.email voice-bot@users.noreply.github.com
-          git add voice/out
-          git diff --cached --quiet || (git commit -m "voice: generated lines" && git pull --rebase -q && git push)
+          git add voice/out voice/logs 2>/dev/null || true
+          git diff --cached --quiet || (git commit -m "voice: ${{ matrix.engine }} output and log" && git pull --rebase -q && git push)
