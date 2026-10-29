@@ -1,0 +1,214 @@
+.0-py3-none-any.whl.metadata (15 kB)
+Collecting pydantic-core==2.50.2 (from pydantic<=3.0,>=2.0->gradio==6.8.0->chatterbox-tts)
+  Downloading pydantic_core-2.50.2-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (6.5 kB)
+Collecting shellingham>=1.3.0 (from typer<1.0,>=0.12->gradio==6.8.0->chatterbox-tts)
+  Downloading shellingham-1.5.4-py2.py3-none-any.whl.metadata (3.5 kB)
+Collecting rich>=13.8.0 (from typer<1.0,>=0.12->gradio==6.8.0->chatterbox-tts)
+  Downloading rich-15.0.0-py3-none-any.whl.metadata (18 kB)
+Collecting cloudpickle>=3.0 (from joblib>=1.0->librosa==0.11.0->chatterbox-tts)
+  Downloading cloudpickle-3.1.2-py3-none-any.whl.metadata (7.1 kB)
+Collecting llvmlite<0.51,>=0.50.0dev0 (from numba>=0.51.0->librosa==0.11.0->chatterbox-tts)
+  Downloading llvmlite-0.50.0-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (5.1 kB)
+Collecting platformdirs>=2.5.0 (from pooch>=1.1->librosa==0.11.0->chatterbox-tts)
+  Downloading platformdirs-4.14.0-py3-none-any.whl.metadata (5.4 kB)
+Collecting six>=1.6 (from python-dateutil>=2.8.2->pandas<4.0,>=1.0->gradio==6.8.0->chatterbox-tts)
+  Downloading six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+Collecting tzdata (from python-dateutil>=2.8.2->pandas<4.0,>=1.0->gradio==6.8.0->chatterbox-tts)
+  Downloading tzdata-2026.6-py2.py3-none-any.whl.metadata (1.4 kB)
+Collecting charset_normalizer<4,>=2 (from requests->diffusers==0.29.0->chatterbox-tts)
+  Downloading charset_normalizer-3.5.2-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (46 kB)
+Collecting urllib3<3,>=1.26 (from requests->diffusers==0.29.0->chatterbox-tts)
+  Downloading urllib3-2.8.0-py3-none-any.whl.metadata (7.4 kB)
+Collecting markdown-it-py>=2.2.0 (from rich>=13.8.0->typer<1.0,>=0.12->gradio==6.8.0->chatterbox-tts)
+  Downloading markdown_it_py-4.2.0-py3-none-any.whl.metadata (7.4 kB)
+Collecting pygments<3.0.0,>=2.13.0 (from rich>=13.8.0->typer<1.0,>=0.12->gradio==6.8.0->chatterbox-tts)
+  Downloading pygments-2.21.0-py3-none-any.whl.metadata (2.5 kB)
+Collecting mdurl~=0.1 (from markdown-it-py>=2.2.0->rich>=13.8.0->typer<1.0,>=0.12->gradio==6.8.0->chatterbox-tts)
+  Downloading mdurl-0.1.2-py3-none-any.whl.metadata (1.6 kB)
+Collecting narwhals>=2.0.1 (from scikit-learn>=1.1.0->librosa==0.11.0->chatterbox-tts)
+  Downloading narwhals-2.28.0-py3-none-any.whl.metadata (15 kB)
+Collecting threadpoolctl>=3.5.0 (from scikit-learn>=1.1.0->librosa==0.11.0->chatterbox-tts)
+  Downloading threadpoolctl-3.7.0-py3-none-any.whl.metadata (24 kB)
+Collecting cffi>=1.0 (from soundfile>=0.12.1->librosa==0.11.0->chatterbox-tts)
+  Downloading cffi-2.1.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (2.5 kB)
+Collecting pycparser (from cffi>=1.0->soundfile>=0.12.1->librosa==0.11.0->chatterbox-tts)
+  Downloading pycparser-3.12-py3-none-any.whl.metadata (9.7 kB)
+Collecting wrapt<3,>=1.10 (from deprecated->pykakasi==2.3.0->chatterbox-tts)
+  Downloading wrapt-2.5.1-cp311-cp311-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (7.6 kB)
+Collecting zipp>=3.20 (from importlib-metadata->diffusers==0.29.0->chatterbox-tts)
+  Downloading zipp-4.1.2-py3-none-any.whl.metadata (3.6 kB)
+Collecting pre-commit (from s3tokenizer->chatterbox-tts)
+  Downloading pre_commit-4.7.0-py2.py3-none-any.whl.metadata (1.2 kB)
+Collecting onnx (from s3tokenizer->chatterbox-tts)
+  Downloading onnx-1.23.2-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (8.7 kB)
+Collecting protobuf>=6.31.1 (from onnx->s3tokenizer->chatterbox-tts)
+  Downloading protobuf-7.36.2-cp310-abi3-manylinux2014_x86_64.whl.metadata (595 bytes)
+Collecting ml_dtypes>=0.5.4 (from onnx->s3tokenizer->chatterbox-tts)
+  Downloading ml_dtypes-0.6.0-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (8.8 kB)
+INFO: pip is looking at multiple versions of ml-dtypes to determine which version is compatible with other requirements. This could take a while.
+  Downloading ml_dtypes-0.5.4-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (8.9 kB)
+Collecting cfgv>=2.0.0 (from pre-commit->s3tokenizer->chatterbox-tts)
+  Downloading cfgv-3.5.0-py2.py3-none-any.whl.metadata (8.9 kB)
+Collecting identify>=1.0.0 (from pre-commit->s3tokenizer->chatterbox-tts)
+  Downloading identify-2.6.20-py2.py3-none-any.whl.metadata (4.4 kB)
+Collecting nodeenv>=0.11.1 (from pre-commit->s3tokenizer->chatterbox-tts)
+  Downloading nodeenv-1.11.1-py2.py3-none-any.whl.metadata (41 kB)
+Collecting virtualenv>=20.10.0 (from pre-commit->s3tokenizer->chatterbox-tts)
+  Downloading virtualenv-21.15.1-py3-none-any.whl.metadata (4.1 kB)
+Collecting distlib<1,>=0.4.3 (from virtualenv>=20.10.0->pre-commit->s3tokenizer->chatterbox-tts)
+  Downloading distlib-0.4.4-py2.py3-none-any.whl.metadata (5.3 kB)
+Collecting python-discovery>=1.6.1 (from virtualenv>=20.10.0->pre-commit->s3tokenizer->chatterbox-tts)
+  Downloading python_discovery-1.6.7-py3-none-any.whl.metadata (3.9 kB)
+Collecting srsly<3.0.0,>=2.3.0 (from spacy-pkuseg->chatterbox-tts)
+  Downloading srsly-2.5.5-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (20 kB)
+Collecting catalogue<2.1.0,>=2.0.3 (from srsly<3.0.0,>=2.3.0->spacy-pkuseg->chatterbox-tts)
+  Downloading catalogue-2.0.10-py3-none-any.whl.metadata (14 kB)
+Downloading chatterbox_tts-0.1.7-py3-none-any.whl (108 kB)
+Downloading conformer-0.3.2-py3-none-any.whl (4.3 kB)
+Downloading diffusers-0.29.0-py3-none-any.whl (2.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.2/2.2 MB 27.7 MB/s  0:00:00
+Downloading gradio-6.8.0-py3-none-any.whl (24.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 24.2/24.2 MB 163.8 MB/s  0:00:00
+Downloading gradio_client-2.2.0-py3-none-any.whl (58 kB)
+Downloading librosa-0.11.0-py3-none-any.whl (260 kB)
+Downloading pykakasi-2.3.0-py3-none-any.whl (2.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.4/2.4 MB 154.6 MB/s  0:00:00
+Downloading safetensors-0.5.3-cp38-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (471 kB)
+Downloading torch-2.6.0%2Bcpu-cp311-cp311-linux_x86_64.whl (178.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 178.7/178.7 MB 212.0 MB/s  0:00:00
+Downloading sympy-1.13.1-py3-none-any.whl (6.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.2/6.2 MB 339.0 MB/s  0:00:00
+Downloading torchaudio-2.6.0%2Bcpu-cp311-cp311-linux_x86_64.whl (1.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.7/1.7 MB 123.6 MB/s  0:00:00
+Downloading transformers-5.2.0-py3-none-any.whl (10.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.4/10.4 MB 188.9 MB/s  0:00:00
+Downloading aiofiles-24.1.0-py3-none-any.whl (15 kB)
+Downloading anyio-4.15.1-py3-none-any.whl (132 kB)
+Downloading fastapi-0.162.0-py3-none-any.whl (148 kB)
+Downloading groovy-0.1.2-py3-none-any.whl (14 kB)
+Downloading httpx-0.28.1-py3-none-any.whl (73 kB)
+Downloading httpcore-1.0.9-py3-none-any.whl (78 kB)
+Downloading huggingface_hub-1.33.0-py3-none-any.whl (846 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 846.4/846.4 kB 191.3 MB/s  0:00:00
+Downloading click-8.5.0-py3-none-any.whl (125 kB)
+Downloading hf_xet-1.7.1-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (4.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.2/4.2 MB 348.4 MB/s  0:00:00
+Downloading numpy-1.26.4-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (18.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 18.3/18.3 MB 288.0 MB/s  0:00:00
+Downloading orjson-3.13.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (130 kB)
+Downloading pandas-3.0.6-cp311-cp311-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (11.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 11.1/11.1 MB 337.0 MB/s  0:00:00
+Downloading pillow-12.3.0-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (6.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.9/6.9 MB 358.3 MB/s  0:00:00
+Downloading pydantic-2.14.2-py3-none-any.whl (490 kB)
+Downloading pydantic_core-2.50.2-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (2.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.2/2.2 MB 325.5 MB/s  0:00:00
+Downloading pyyaml-6.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (806 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 806.6/806.6 kB 204.2 MB/s  0:00:00
+Downloading safehttpx-0.1.7-py3-none-any.whl (9.0 kB)
+Downloading semantic_version-2.10.0-py2.py3-none-any.whl (15 kB)
+Downloading starlette-0.52.1-py3-none-any.whl (74 kB)
+Downloading tokenizers-0.22.2-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.3/3.3 MB 374.7 MB/s  0:00:00
+Downloading tomlkit-0.13.3-py3-none-any.whl (38 kB)
+Downloading typer-0.27.3-py3-none-any.whl (123 kB)
+Downloading annotated_doc-0.0.5-py3-none-any.whl (5.3 kB)
+Downloading annotated_types-0.8.0-py3-none-any.whl (13 kB)
+Downloading audioread-3.1.0-py3-none-any.whl (23 kB)
+Downloading brotli-1.2.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (1.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.4/1.4 MB 287.8 MB/s  0:00:00
+Downloading decorator-5.3.1-py3-none-any.whl (10 kB)
+Downloading einops-0.8.2-py3-none-any.whl (65 kB)
+Downloading h11-0.16.0-py3-none-any.whl (37 kB)
+Downloading idna-3.20-py3-none-any.whl (69 kB)
+Downloading joblib-1.6.0-py3-none-any.whl (306 kB)
+Downloading cloudpickle-3.1.2-py3-none-any.whl (22 kB)
+Downloading lazy_loader-0.6-py3-none-any.whl (8.8 kB)
+Downloading msgpack-1.2.4-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (480 kB)
+Downloading numba-0.68.1-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (3.8 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.8/3.8 MB 202.9 MB/s  0:00:00
+Downloading llvmlite-0.50.0-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (59.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 59.7/59.7 MB 186.5 MB/s  0:00:00
+Downloading opentelemetry_api-1.45.2-py3-none-any.whl (60 kB)
+Downloading packaging-26.3-py3-none-any.whl (129 kB)
+Downloading pooch-1.9.0-py3-none-any.whl (67 kB)
+Downloading platformdirs-4.14.0-py3-none-any.whl (35 kB)
+Downloading python_dateutil-3.0.0-py2.py3-none-any.whl (94 kB)
+Downloading python_multipart-0.0.32-py3-none-any.whl (30 kB)
+Downloading pytz-2026.6-py2.py3-none-any.whl (506 kB)
+Downloading regex-2026.9.29-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (804 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 805.0/805.0 kB 205.3 MB/s  0:00:00
+Downloading requests-2.34.2-py3-none-any.whl (73 kB)
+Downloading charset_normalizer-3.5.2-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (269 kB)
+Downloading urllib3-2.8.0-py3-none-any.whl (135 kB)
+Downloading certifi-2026.10.23-py3-none-any.whl (135 kB)
+Downloading resemble_perth-1.0.1-py3-none-any.whl (34.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 34.4/34.4 MB 108.0 MB/s  0:00:00
+Downloading rich-15.0.0-py3-none-any.whl (310 kB)
+Downloading pygments-2.21.0-py3-none-any.whl (1.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 216.9 MB/s  0:00:00
+Downloading markdown_it_py-4.2.0-py3-none-any.whl (91 kB)
+Downloading mdurl-0.1.2-py3-none-any.whl (10.0 kB)
+Downloading scikit_learn-1.9.1-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (9.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9.3/9.3 MB 198.1 MB/s  0:00:00
+Downloading narwhals-2.28.0-py3-none-any.whl (490 kB)
+Downloading scipy-1.17.1-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (35.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 35.3/35.3 MB 358.8 MB/s  0:00:00
+Downloading shellingham-1.5.4-py2.py3-none-any.whl (9.8 kB)
+Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)
+Downloading soundfile-0.14.0-py2.py3-none-manylinux_2_28_x86_64.whl (1.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 250.0 MB/s  0:00:00
+Downloading cffi-2.1.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (217 kB)
+Downloading soxr-1.1.0-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (245 kB)
+Downloading threadpoolctl-3.7.0-py3-none-any.whl (26 kB)
+Downloading tqdm-4.70.1-py3-none-any.whl (80 kB)
+Downloading typing_inspection-0.4.4-py3-none-any.whl (14 kB)
+Downloading uvicorn-0.54.0-py3-none-any.whl (87 kB)
+Downloading deprecated-1.3.1-py2.py3-none-any.whl (11 kB)
+Downloading wrapt-2.5.1-cp311-cp311-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (240 kB)
+Downloading ffmpy-1.0.0-py3-none-any.whl (5.6 kB)
+Downloading importlib_metadata-10.1.0-py3-none-any.whl (32 kB)
+Downloading zipp-4.1.2-py3-none-any.whl (10 kB)
+Downloading jaconv-0.5.0-py3-none-any.whl (16 kB)
+Downloading omegaconf-2.4.0-py3-none-any.whl (254 kB)
+Downloading pycparser-3.12-py3-none-any.whl (62 kB)
+Downloading pydub-0.25.1-py2.py3-none-any.whl (32 kB)
+Downloading pyloudnorm-0.2.0-py3-none-any.whl (10 kB)
+Downloading s3tokenizer-0.3.0-py3-none-any.whl (226 kB)
+Downloading onnx-1.23.2-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (8.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8.9/8.9 MB 139.6 MB/s  0:00:00
+Downloading ml_dtypes-0.5.4-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (5.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.0/5.0 MB 212.5 MB/s  0:00:00
+Downloading protobuf-7.36.2-cp310-abi3-manylinux2014_x86_64.whl (343 kB)
+Downloading pre_commit-4.7.0-py2.py3-none-any.whl (226 kB)
+Downloading cfgv-3.5.0-py2.py3-none-any.whl (7.4 kB)
+Downloading identify-2.6.20-py2.py3-none-any.whl (99 kB)
+Downloading nodeenv-1.11.1-py2.py3-none-any.whl (34 kB)
+Downloading virtualenv-21.15.1-py3-none-any.whl (5.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.6/5.6 MB 334.2 MB/s  0:00:00
+Downloading distlib-0.4.4-py2.py3-none-any.whl (472 kB)
+Downloading python_discovery-1.6.7-py3-none-any.whl (39 kB)
+Downloading spacy_pkuseg-1.0.2-cp311-cp311-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (4.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.4/4.4 MB 219.9 MB/s  0:00:00
+Downloading srsly-2.5.5-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (1.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 180.2 MB/s  0:00:00
+Downloading catalogue-2.0.10-py3-none-any.whl (17 kB)
+Downloading typer_slim-0.24.0-py3-none-any.whl (3.4 kB)
+Downloading tzdata-2026.6-py2.py3-none-any.whl (348 kB)
+Installing collected packages: pytz, pydub, jaconv, distlib, brotli, zipp, wrapt, urllib3, tzdata, typing-inspection, tqdm, tomlkit, threadpoolctl, sympy, six, shellingham, semantic-version, safetensors, resemble-perth, regex, pyyaml, python-multipart, python-discovery, pygments, pydantic-core, pycparser, protobuf, platformdirs, Pillow, packaging, orjson, opentelemetry-api, numpy, nodeenv, narwhals, msgpack, mdurl, llvmlite, idna, identify, hf-xet, h11, groovy, ffmpy, einops, decorator, cloudpickle, click, charset_normalizer, cfgv, certifi, catalogue, audioread, annotated-types, annotated-doc, aiofiles, virtualenv, uvicorn, torch, srsly, soxr, scipy, requests, python-dateutil, pydantic, omegaconf, numba, ml_dtypes, markdown-it-py, lazy_loader, joblib, importlib-metadata, httpcore, deprecated, cffi, anyio, torchaudio, starlette, spacy-pkuseg, soundfile, scikit-learn, rich, pyloudnorm, pykakasi, pre-commit, pooch, pandas, onnx, httpx, conformer, typer, safehttpx, s3tokenizer, librosa, huggingface-hub, fastapi, typer-slim, tokenizers, gradio-client, diffusers, transformers, gradio, chatterbox-tts
+  Attempting uninstall: sympy
+    Found existing installation: sympy 1.14.0
+    Uninstalling sympy-1.14.0:
+      Successfully uninstalled sympy-1.14.0
+  Attempting uninstall: torch
+    Found existing installation: torch 2.8.0+cpu
+    Uninstalling torch-2.8.0+cpu:
+      Successfully uninstalled torch-2.8.0+cpu
+  Attempting uninstall: torchaudio
+    Found existing installation: torchaudio 2.8.0+cpu
+    Uninstalling torchaudio-2.8.0+cpu:
+      Successfully uninstalled torchaudio-2.8.0+cpu
+
+Successfully installed Pillow-12.3.0 aiofiles-24.1.0 annotated-doc-0.0.5 annotated-types-0.8.0 anyio-4.15.1 audioread-3.1.0 brotli-1.2.1 catalogue-2.0.10 certifi-2026.10.23 cffi-2.1.1 cfgv-3.5.0 charset_normalizer-3.5.2 chatterbox-tts-0.1.7 click-8.5.0 cloudpickle-3.1.2 conformer-0.3.2 decorator-5.3.1 deprecated-1.3.1 diffusers-0.29.0 distlib-0.4.4 einops-0.8.2 fastapi-0.162.0 ffmpy-1.0.0 gradio-6.8.0 gradio-client-2.2.0 groovy-0.1.2 h11-0.16.0 hf-xet-1.7.1 httpcore-1.0.9 httpx-0.28.1 huggingface-hub-1.33.0 identify-2.6.20 idna-3.20 importlib-metadata-10.1.0 jaconv-0.5.0 joblib-1.6.0 lazy_loader-0.6 librosa-0.11.0 llvmlite-0.50.0 markdown-it-py-4.2.0 mdurl-0.1.2 ml_dtypes-0.5.4 msgpack-1.2.4 narwhals-2.28.0 nodeenv-1.11.1 numba-0.68.1 numpy-1.26.4 omegaconf-2.4.0 onnx-1.23.2 opentelemetry-api-1.45.2 orjson-3.13.0 packaging-26.3 pandas-3.0.6 platformdirs-4.14.0 pooch-1.9.0 pre-commit-4.7.0 protobuf-7.36.2 pycparser-3.12 pydantic-2.14.2 pydantic-core-2.50.2 pydub-0.25.1 pygments-2.21.0 pykakasi-2.3.0 pyloudnorm-0.2.0 python-dateutil-3.0.0 python-discovery-1.6.7 python-multipart-0.0.32 pytz-2026.6 pyyaml-6.0.3 regex-2026.9.29 requests-2.34.2 resemble-perth-1.0.1 rich-15.0.0 s3tokenizer-0.3.0 safehttpx-0.1.7 safetensors-0.5.3 scikit-learn-1.9.1 scipy-1.17.1 semantic-version-2.10.0 shellingham-1.5.4 six-1.17.0 soundfile-0.14.0 soxr-1.1.0 spacy-pkuseg-1.0.2 srsly-2.5.5 starlette-0.52.1 sympy-1.13.1 threadpoolctl-3.7.0 tokenizers-0.22.2 tomlkit-0.13.3 torch-2.6.0+cpu torchaudio-2.6.0+cpu tqdm-4.70.1 transformers-5.2.0 typer-0.27.3 typer-slim-0.24.0 typing-inspection-0.4.4 tzdata-2026.6 urllib3-2.8.0 uvicorn-0.54.0 virtualenv-21.15.1 wrapt-2.5.1 zipp-4.1.2
+WARNING: Skipping torchcodec as it is not installed.
+torch 2.6.0+cpu torchaudio 2.6.0+cpu
