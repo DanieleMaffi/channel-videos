@@ -14,7 +14,7 @@ jobs:
       fail-fast: false
       max-parallel: 1
       matrix:
-        engine: [chatterbox, edge, xtts, f5]
+        engine: [chatterbox, orpheus, edge, xtts, f5]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -45,9 +45,10 @@ jobs:
             f5) pip install -c /tmp/pin.txt f5-tts soundfile >> voice/logs/install-f5.txt 2>&1 ;;
             chatterbox) pip install chatterbox-tts faster-whisper num2words --extra-index-url https://download.pytorch.org/whl/cpu >> voice/logs/install-chatterbox.txt 2>&1 ;;
             edge) pip install edge-tts >> voice/logs/install-edge.txt 2>&1 ;;
+            orpheus) pip install orpheus-cpp soundfile numpy >> voice/logs/install-orpheus.txt 2>&1 && pip install llama-cpp-python --extra-index-url https://abetlen.github.io/llama-cpp-python/whl/cpu >> voice/logs/install-orpheus.txt 2>&1 ;;
           esac
           pip uninstall -y torchcodec >> voice/logs/install-${{ matrix.engine }}.txt 2>&1 || true
-          [ "${{ matrix.engine }}" = edge ] || python -c "import torch, torchaudio; print('torch', torch.__version__, 'torchaudio', torchaudio.__version__)" | tee -a voice/logs/install-${{ matrix.engine }}.txt
+          case "${{ matrix.engine }}" in edge|orpheus) ;; *) python -c "import torch, torchaudio; print('torch', torch.__version__, 'torchaudio', torchaudio.__version__)" | tee -a voice/logs/install-${{ matrix.engine }}.txt ;; esac
           tail -30 voice/logs/install-${{ matrix.engine }}.txt
       - name: Generate
         if: steps.check.outputs.n != '0'

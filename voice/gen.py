@@ -1,9 +1,10 @@
 # Free voice job for the channel videos (runs on GitHub Actions, CPU).
 # A request file voice/requests/<name>.txt holds:
-#   engine: xtts | f5 | chatterbox | edge   (first line; several comma-separated)
+#   engine: xtts | f5 | chatterbox | edge | orpheus   (first line; several comma-separated)
 #   speaker: <XTTS studio speaker>   (xtts only, optional; default "Damien Black")
 #   refs: default, george, bm_lewis ...   (chatterbox: reference voices from voice/ref/<name>.wav; 'default' = built-in voice)
-#   voices: en-US-AndrewMultilingualNeural, ...   (edge: Microsoft neural voice names)
+#   voices: en-US-AndrewMultilingualNeural, ...   (edge: Microsoft voice names; orpheus: tara, leah, jess, leo, dan, mia, zac, zoe)
+#   refs: turbo   (chatterbox: Chatterbox-Turbo's own voice)
 #   exaggeration: 0.5   (chatterbox: expressiveness 0.25-1.0)
 #   01|First spoken line
 #   02|Second spoken line
@@ -44,7 +45,9 @@ def run_f5(lines, outdir):
                         '--gen_text', t, '--output_dir', outdir, '--output_file', f'{i}.wav', '--remove_silence'], check=True)
 
 cb = None
+cbt = None
 asr = None
+orph = None
 def words(t):
     import re
     from num2words import num2words
@@ -66,16 +69,26 @@ def run_chatterbox(lines, outdir, ref, exag):
     global cb
     import shutil, torchaudio
     from chatterbox.tts import ChatterboxTTS
-    if cb is None:
-        cb = ChatterboxTTS.from_pretrained(device='cpu')
-    prompt = None if ref == 'default' else f'voice/ref/{ref}.wav'
+    if ref == 'turbo':
+        global cbt
+        from chatterbox.tts_turbo import ChatterboxTurboTTS
+        if cbt is None:
+            cbt = ChatterboxTurboTTS.from_pretrained(device='cpu')
+        model, prompt = cbt, None
+    else:
+        if cb is None:
+            cb = ChatterboxTTS.from_pretrained(device='cpu')
+        model, prompt = cb, (None if ref == 'default' else f'voice/ref/{ref}.wav')
     report = []
     for i, t in lines:
         best = (-1, None, '')
         for attempt in range(4):   # up to 4 takes, keep the clearest one
             tmp = os.path.join(outdir, f'{i}.take{attempt}.wav')
-            wav = cb.generate(t, audio_prompt_path=prompt, exaggeration=exag, cfg_weight=0.5)
-            torchaudio.save(tmp, wav, cb.sr)
+            if model is cb:
+                wav = model.generate(t, audio_prompt_path=prompt, exaggeration=exag, cfg_weight=0.5)
+            else:
+                wav = model.generate(t, audio_prompt_path=prompt) if prompt else model.generate(t)
+            torchaudio.save(tmp, wav, model.sr)
             try:
                 score, heard = heard_score(tmp, t)
             except Exception as e:
@@ -91,6 +104,20 @@ def run_chatterbox(lines, outdir, ref, exag):
         report.append(f'{i}|{best[0]:.2f}|{best[2].strip()}')
     open(os.path.join(outdir, 'check.txt'), 'w', encoding='utf-8').write('\n'.join(report) + '\n')
 
+def run_orpheus(lines, outdir, voice):
+    # Orpheus 3B (Apache 2.0), quantized GGUF on CPU via orpheus-cpp; voices: tara, leah, jess, leo, dan, mia, zac, zoe
+    global orph
+    import numpy as np, soundfile as sf
+    from orpheus_cpp import OrpheusCpp
+    if orph is None:
+        orph = OrpheusCpp(verbose=False, lang='en')
+    for i, t in lines:
+        sr, samples = orph.tts(t, options={'voice_id': voice})
+        a = np.asarray(samples).squeeze()
+        if a.dtype != np.float32:
+            a = a.astype(np.float32) / 32768.0
+        sf.write(os.path.join(outdir, f'{i}.wav'), a, sr)
+
 def run_edge(lines, outdir, voice):
     for i, t in lines:
         mp3 = os.path.join(outdir, f'{i}.mp3')
@@ -103,6 +130,8 @@ def targets(eng, meta):
         sp = meta.get('speaker', 'Damien Black'); return [('xtts-' + sp.replace(' ', '_'), sp)]
     if eng == 'chatterbox':
         return [('chatterbox-' + r.strip(), r.strip()) for r in meta.get('refs', 'default').split(',')]
+    if eng == 'orpheus':
+        return [('orpheus-' + v.strip(), v.strip()) for v in meta.get('voices', 'tara').split(',')]
     if eng == 'edge':
         return [('edge-' + v.strip(), v.strip()) for v in meta.get('voices', 'en-US-AndrewMultilingualNeural').split(',')]
     return [(eng, None)]
@@ -136,6 +165,8 @@ for req in sorted(glob.glob('voice/requests/*.txt')):
                 run_chatterbox(lines, outdir, arg, float(meta.get('exaggeration', '0.5')))
             elif eng == 'edge':
                 run_edge(lines, outdir, arg)
+            elif eng == 'orpheus':
+                run_orpheus(lines, outdir, arg)
             done += 1
         except Exception as e:
             print('FAILED', name, sub, repr(e), flush=True)
