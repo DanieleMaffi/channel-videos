@@ -1,8 +1,0 @@
-engine: chatterbox
-refs: default
-exaggeration: 0.6
-01|One tiny beetle. How much can it pull?
-02|A dung beetle can pull one thousand, one hundred and forty one times its own weight.
-03|For a person of seventy kilograms, that means about eighty tonnes.
-04|That is six double-decker buses, full of people.
-05|Now that is one strong bug.
