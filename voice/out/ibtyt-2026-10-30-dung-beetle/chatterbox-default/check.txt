@@ -1,0 +1,5 @@
+01|1.00|One tiny beetle. How much can it pull?
+02|1.00|A dung beetle can pull 1,141 times its own weight.
+03|0.82|For a person of 70 kg, that means about 80 tons.
+04|1.00|That is six double-decker buses full of people.
+05|1.00|Now that is one strong bug.
