@@ -1,0 +1,10 @@
+engine: chatterbox
+refs: default
+exaggeration: 0.6
+01|What if you sank to the bottom of the deepest ocean?
+02|By about one thousand meters down, the sunlight is gone.
+03|Then, bump! The bottom, almost eleven kilometers down.
+04|Mount Everest could hide down here, with two kilometers of water on top.
+05|The water pushes over a thousand times harder than the air up top.
+06|And guess what? Tiny shrimp-like critters already live here!
+07|Okay, time to reel you back up.
