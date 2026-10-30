@@ -1,0 +1,14 @@
+generating sample-orpheus orpheus-tara
+[0;93m2026-10-30 22:20:47.682189110 [W:onnxruntime:Default, device_discovery.cc:95 GetPciBusId] Skipping pci_bus_id for PCI path at "/sys/devices/LNXSYSTM:00/LNXSYBUS:00/ACPI0004:00/MSFT1000:00/5620e0c7-8062-4dce-aeb7-520c7ef76171" because filename "5620e0c7-8062-4dce-aeb7-520c7ef76171" did not match expected pattern of [0-9a-f]+:[0-9a-f]+:[0-9a-f]+[.][0-9a-f]+[m
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/onnxruntime/capi/onnxruntime_inference_collection.py:197: UserWarning: Specified provider 'CUDAExecutionProvider' is not in available provider names.Available providers: 'AzureExecutionProvider, CPUExecutionProvider'
+  warnings.warn(
+Running model without GPU Acceleration. Please set n_gpu_layers parameters to control the number of layers to offload to GPU.
+generating sample-orpheus orpheus-leah
+generating sample-orpheus orpheus-jess
+generating sample-orpheus orpheus-mia
+generating sample-orpheus orpheus-zoe
+generating sample-orpheus orpheus-leo
+generating sample-orpheus orpheus-dan
+generating sample-orpheus orpheus-zac
+jobs done: 8
