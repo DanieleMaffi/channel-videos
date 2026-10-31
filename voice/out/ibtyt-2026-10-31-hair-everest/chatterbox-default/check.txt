@@ -1,5 +1,0 @@
-01|1.00|All the hair on your head growing together, how much is that?
-02|0.91|1 hair grows just 0.35mm a day.
-03|1.00|But you have about 100,000 of them.
-04|0.91|Together, that is about 30 meters of hair every single day.
-05|0.91|and in one year, about 11 kilometers taller than Mount Everest.
