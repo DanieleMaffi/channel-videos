@@ -6,6 +6,7 @@
 #   voices: en-US-AndrewMultilingualNeural, ...   (edge: Microsoft voice names; orpheus: tara, leah, jess, leo, dan, mia, zac, zoe)
 #   refs: turbo   (chatterbox: Chatterbox-Turbo's own voice)
 #   exaggeration: 0.5   (chatterbox: expressiveness 0.25-1.0)
+#   cfg: 0.5   (chatterbox: lower = slower, more deliberate pacing; 0.3 is calm)
 #   01|First spoken line
 #   02|Second spoken line
 # Output: voice/out/<name>/<engine>/<id>.wav (24 kHz mono). The daily run downloads them and trims/normalises.
@@ -65,7 +66,7 @@ def heard_score(path, text):
     heard = ' '.join(s.text for s in segs)
     return difflib.SequenceMatcher(None, words(text), words(heard)).ratio(), heard
 
-def run_chatterbox(lines, outdir, ref, exag):
+def run_chatterbox(lines, outdir, ref, exag, cfg=0.5):
     global cb
     import shutil, torchaudio
     from chatterbox.tts import ChatterboxTTS
@@ -85,7 +86,7 @@ def run_chatterbox(lines, outdir, ref, exag):
         for attempt in range(4):   # up to 4 takes, keep the clearest one
             tmp = os.path.join(outdir, f'{i}.take{attempt}.wav')
             if model is cb:
-                wav = model.generate(t, audio_prompt_path=prompt, exaggeration=exag, cfg_weight=0.5)
+                wav = model.generate(t, audio_prompt_path=prompt, exaggeration=exag, cfg_weight=cfg)
             else:
                 wav = model.generate(t, audio_prompt_path=prompt) if prompt else model.generate(t)
             torchaudio.save(tmp, wav, model.sr)
@@ -162,7 +163,7 @@ for req in sorted(glob.glob('voice/requests/*.txt')):
             elif eng == 'f5':
                 run_f5(lines, outdir)
             elif eng == 'chatterbox':
-                run_chatterbox(lines, outdir, arg, float(meta.get('exaggeration', '0.5')))
+                run_chatterbox(lines, outdir, arg, float(meta.get('exaggeration', '0.5')), float(meta.get('cfg', '0.5')))
             elif eng == 'edge':
                 run_edge(lines, outdir, arg)
             elif eng == 'orpheus':
