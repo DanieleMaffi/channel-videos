@@ -1,0 +1,4 @@
+01|1.00|How far away is the moon really?
+02|1.00|Start with size.  The moon is just over a quarter as wide as earth.
+03|1.00|Now the gap about 30 Earths would fit between us.
+04|1.00|and light, it makes the trip in about 1.3 seconds.

@@ -1,4 +1,4 @@
-lecting sympy==1.13.1 (from torch==2.6.0->chatterbox-tts)
+llecting sympy==1.13.1 (from torch==2.6.0->chatterbox-tts)
   Using cached sympy-1.13.1-py3-none-any.whl.metadata (12 kB)
 Requirement already satisfied: mpmath<1.4,>=1.1.0 in /opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages (from sympy==1.13.1->torch==2.6.0->chatterbox-tts) (1.3.0)
 Collecting tokenizers<=0.23.0,>=0.22.0 (from transformers==5.2.0->chatterbox-tts)
@@ -127,7 +127,7 @@ Using cached httpcore-1.0.9-py3-none-any.whl (78 kB)
 Using cached huggingface_hub-1.33.0-py3-none-any.whl (846 kB)
 Using cached click-8.5.0-py3-none-any.whl (125 kB)
 Downloading hf_xet-1.8.0-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (4.3 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.3/4.3 MB 81.4 MB/s  0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.3/4.3 MB 85.6 MB/s  0:00:00
 Using cached numpy-1.26.4-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (18.3 MB)
 Using cached orjson-3.13.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (130 kB)
 Using cached pandas-3.0.6-cp311-cp311-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (11.1 MB)
@@ -209,7 +209,7 @@ Using cached cfgv-3.5.0-py2.py3-none-any.whl (7.4 kB)
 Using cached identify-2.6.20-py2.py3-none-any.whl (99 kB)
 Using cached nodeenv-1.11.1-py2.py3-none-any.whl (34 kB)
 Downloading virtualenv-21.15.2-py3-none-any.whl (5.6 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.6/5.6 MB 272.3 MB/s  0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.6/5.6 MB 25.5 MB/s  0:00:00
 Using cached distlib-0.4.4-py2.py3-none-any.whl (472 kB)
 Downloading python_discovery-1.9.0-py3-none-any.whl (39 kB)
 Using cached spacy_pkuseg-1.0.2-cp311-cp311-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (4.4 MB)
