@@ -1,9 +1,0 @@
-engine: chatterbox
-refs: default
-exaggeration: 0.6
-01|What if you scooped all the salt out of the sea?
-02|Every liter of seawater hides about thirty five grams of salt.
-03|Spread it all over the land, and it piles up a hundred and fifty meters deep!
-04|That's as tall as a forty story building.
-05|Which is enough salt for a lot of fries.
-06|Oops. Back into the sea it goes!
