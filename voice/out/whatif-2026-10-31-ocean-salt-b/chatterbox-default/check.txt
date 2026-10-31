@@ -1,0 +1,6 @@
+01|1.00|What if you scooped all the salt out of the sea?
+02|1.00|Every liter of seawater hides about 35 grams of salt.
+03|0.94|Spread it all over the land and it piles up 150 meters deep.
+04|1.00|That's as tall as a 40-story building.
+05|1.00|which is enough salt for a lot of fries.
+06|1.00|Oops, back into the sea it goes.
