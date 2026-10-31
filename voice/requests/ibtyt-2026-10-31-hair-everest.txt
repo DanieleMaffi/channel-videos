@@ -1,0 +1,8 @@
+engine: chatterbox
+refs: default
+exaggeration: 0.6
+01|All the hair on your head, growing together. How much is that?
+02|One hair grows just zero point three five millimetres a day.
+03|But you have about one hundred thousand of them.
+04|Together, that is about thirty metres of hair. Every single day.
+05|And in one year? About eleven kilometres. Taller than Mount Everest!
