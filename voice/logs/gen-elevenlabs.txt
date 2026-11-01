@@ -1,0 +1,10 @@
+generating sample-eleven elevenlabs-George
+available voices: Adam - Dominant, Firm, Alice - Clear, Engaging Educator, Bella - Professional, Bright, Warm, Bill - Wise, Mature, Balanced, Brian - Deep, Resonant and Comforting, Callum - Husky Trickster, Charlie - Deep, Confident, Energetic, Chris - Charming, Down-to-Earth, Daniel - Steady Broadcaster, Eric - Smooth, Trustworthy, George - Warm, Captivating Storyteller, Harry - Fierce Warrior, Jessica - Playful, Bright, Warm, Laura - Enthusiast, Quirky Attitude, Liam - Energetic, Social Media Creator, Lily - Velvety Actress, Matilda - Knowledgable, Professional, River - Relaxed, Neutral, Informative, Roger - Laid-Back, Casual, Resonant, Sarah - Mature, Reassuring, Confident, Will - Relaxed Optimist
+generating sample-eleven elevenlabs-Brian
+generating sample-eleven elevenlabs-Daniel
+generating sample-eleven elevenlabs-Bill
+generating sample-eleven elevenlabs-Chris
+generating sample-eleven elevenlabs-Sarah
+generating sample-eleven elevenlabs-Alice
+generating sample-eleven elevenlabs-Matilda
+jobs done: 8
