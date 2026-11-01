@@ -1,0 +1,10 @@
+engine: chatterbox
+refs: default
+exaggeration: 0.6
+01|What if you hopped in a car... and drove all the way to the Sun?
+02|The Sun is about a hundred and fifty million kilometers away.
+03|You drive at a hundred kilometers an hour, and never stop.
+04|You'd get there in about a hundred and seventy-one years!
+05|That's like driving around the Earth three thousand seven hundred times.
+06|And the surface? Five and a half thousand degrees. Nope!
+07|The trip home? Another hundred and seventy-one years.
