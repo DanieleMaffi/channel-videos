@@ -125,7 +125,7 @@ def run_elevenlabs(lines, outdir, voice, speed):
     # ElevenLabs (paid service; free plan = non-commercial, credit "elevenlabs.io"). The key comes ONLY from the
     # GitHub secret ELEVENLABS_API_KEY; it is never printed or written anywhere.
     global el_voices
-    import json, urllib.request
+    import json, urllib.error, urllib.request
     key = os.environ.get('ELEVENLABS_API_KEY', '').strip()
     if not key:
         raise RuntimeError('ELEVENLABS_API_KEY secret is not set in the repo')
@@ -137,6 +137,15 @@ def run_elevenlabs(lines, outdir, voice, speed):
         data = json.loads(call('https://api.elevenlabs.io/v1/voices'))
         el_voices = {v['name']: v['voice_id'] for v in data.get('voices', [])}
         print('available voices:', ', '.join(sorted(el_voices)), flush=True)
+    need = sum(len(t) for _, t in lines)
+    try:
+        sub = json.loads(call('https://api.elevenlabs.io/v1/user/subscription'))
+        left = int(sub.get('character_limit', 0)) - int(sub.get('character_count', 0))
+        print(f'credits left: {left}, this request needs about {need}', flush=True)
+        if left < need + 20:
+            raise RuntimeError(f'not enough ElevenLabs credits ({left} left, {need} needed)')
+    except urllib.error.HTTPError as e:
+        print('credit check not allowed for this key (HTTP', e.code, '), trying anyway', flush=True)
     vid = el_voices.get(voice) or next((i for n, i in el_voices.items() if n.lower().split(' ')[0] == voice.lower()), None) or voice
     for i, t in lines:
         body = {'text': t, 'model_id': 'eleven_multilingual_v2', 'voice_settings': {'stability': 0.5, 'similarity_boost': 0.75, 'style': 0.0, 'use_speaker_boost': True, 'speed': speed}}

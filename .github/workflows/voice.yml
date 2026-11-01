@@ -36,10 +36,10 @@ jobs:
         if: steps.check.outputs.n != '0'
         run: |
           mkdir -p voice/logs
-          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg > /dev/null
+          which ffmpeg > /dev/null || (sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg > /dev/null)
           # torch 2.8 (2.9+ needs torchcodec, which does not load on the runners)
           printf 'torch==2.8.0\ntorchaudio==2.8.0\n' > /tmp/pin.txt
-          pip install -q torch==2.8.0 torchaudio==2.8.0 --index-url https://download.pytorch.org/whl/cpu > voice/logs/install-${{ matrix.engine }}.txt 2>&1
+          case "${{ matrix.engine }}" in edge|elevenlabs|orpheus) : > voice/logs/install-${{ matrix.engine }}.txt ;; *) pip install -q torch==2.8.0 torchaudio==2.8.0 --index-url https://download.pytorch.org/whl/cpu > voice/logs/install-${{ matrix.engine }}.txt 2>&1 ;; esac
           case "${{ matrix.engine }}" in
             xtts) pip install -c /tmp/pin.txt coqui-tts soundfile >> voice/logs/install-xtts.txt 2>&1 ;;
             f5) pip install -c /tmp/pin.txt f5-tts soundfile >> voice/logs/install-f5.txt 2>&1 ;;
