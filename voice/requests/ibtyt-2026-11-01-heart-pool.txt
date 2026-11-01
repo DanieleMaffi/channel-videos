@@ -1,7 +1,0 @@
-engine: chatterbox
-refs: default
-exaggeration: 0.6
-01|How much blood does your heart really pump?
-02|Every minute, about five liters. That's nearly all your blood.
-03|In one day? Around seven thousand five hundred liters.
-04|And in a single year, about one Olympic swimming pool.

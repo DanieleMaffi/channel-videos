@@ -1,4 +1,0 @@
-01|1.00|How much blood does your heart really pump?
-02|1.00|every minute about 5 liters. That's nearly all your blood.
-03|1.00|in one day, around 7,500 liters.
-04|1.00|and in a single year about one Olympic swimming pool.
