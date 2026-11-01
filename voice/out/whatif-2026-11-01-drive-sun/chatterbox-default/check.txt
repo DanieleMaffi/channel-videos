@@ -1,7 +1,0 @@
-01|1.00|What if you hopped in a car and drove all the way to the sun?
-02|0.91|The sun is about 150 million kilometers away.
-03|0.82|You drive at 100 km an hour and never stop.
-04|0.91|You'd get there in about 171 years.
-05|1.00|That's like driving around the Earth 3,700 times.
-06|1.00|and the surface 5 and a half thousand degrees. Nope.
-07|0.95|The trip home, another 171 years.
