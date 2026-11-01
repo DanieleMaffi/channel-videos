@@ -1,10 +1,11 @@
 # Free voice job for the channel videos (runs on GitHub Actions, CPU).
 # A request file voice/requests/<name>.txt holds:
-#   engine: xtts | f5 | chatterbox | edge | orpheus   (first line; several comma-separated)
+#   engine: xtts | f5 | chatterbox | edge | orpheus | elevenlabs   (first line; several comma-separated)
 #   speaker: <XTTS studio speaker>   (xtts only, optional; default "Damien Black")
 #   refs: default, george, bm_lewis ...   (chatterbox: reference voices from voice/ref/<name>.wav; 'default' = built-in voice)
 #   voices: en-US-AndrewMultilingualNeural, ...   (edge: Microsoft voice names; orpheus: tara, leah, jess, leo, dan, mia, zac, zoe)
 #   refs: turbo   (chatterbox: Chatterbox-Turbo's own voice)
+#   voices: George, Brian, ...   (elevenlabs: voice names from the account, or voice ids)   speed: 1.0 (elevenlabs, 0.7-1.2)
 #   exaggeration: 0.5   (chatterbox: expressiveness 0.25-1.0)
 #   cfg: 0.5   (chatterbox: lower = slower, more deliberate pacing; 0.3 is calm)
 #   01|First spoken line
@@ -119,6 +120,31 @@ def run_orpheus(lines, outdir, voice):
             a = a.astype(np.float32) / 32768.0
         sf.write(os.path.join(outdir, f'{i}.wav'), a, sr)
 
+el_voices = None
+def run_elevenlabs(lines, outdir, voice, speed):
+    # ElevenLabs (paid service; free plan = non-commercial, credit "elevenlabs.io"). The key comes ONLY from the
+    # GitHub secret ELEVENLABS_API_KEY; it is never printed or written anywhere.
+    global el_voices
+    import json, urllib.request
+    key = os.environ.get('ELEVENLABS_API_KEY', '').strip()
+    if not key:
+        raise RuntimeError('ELEVENLABS_API_KEY secret is not set in the repo')
+    def call(url, body=None):
+        req = urllib.request.Request(url, data=json.dumps(body).encode() if body else None, headers={'xi-api-key': key, 'Content-Type': 'application/json', 'Accept': '*/*'})
+        with urllib.request.urlopen(req, timeout=120) as r:
+            return r.read()
+    if el_voices is None:
+        data = json.loads(call('https://api.elevenlabs.io/v1/voices'))
+        el_voices = {v['name']: v['voice_id'] for v in data.get('voices', [])}
+        print('available voices:', ', '.join(sorted(el_voices)), flush=True)
+    vid = el_voices.get(voice) or next((i for n, i in el_voices.items() if n.lower().split(' ')[0] == voice.lower()), None) or voice
+    for i, t in lines:
+        body = {'text': t, 'model_id': 'eleven_multilingual_v2', 'voice_settings': {'stability': 0.5, 'similarity_boost': 0.75, 'style': 0.0, 'use_speaker_boost': True, 'speed': speed}}
+        mp3 = os.path.join(outdir, f'{i}.mp3')
+        open(mp3, 'wb').write(call(f'https://api.elevenlabs.io/v1/text-to-speech/{vid}?output_format=mp3_44100_128', body))
+        subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', mp3, '-ar', '44100', '-ac', '1', os.path.join(outdir, f'{i}.wav')], check=True)
+        os.remove(mp3)
+
 def run_edge(lines, outdir, voice):
     for i, t in lines:
         mp3 = os.path.join(outdir, f'{i}.mp3')
@@ -131,6 +157,8 @@ def targets(eng, meta):
         sp = meta.get('speaker', 'Damien Black'); return [('xtts-' + sp.replace(' ', '_'), sp)]
     if eng == 'chatterbox':
         return [('chatterbox-' + r.strip(), r.strip()) for r in meta.get('refs', 'default').split(',')]
+    if eng == 'elevenlabs':
+        return [('elevenlabs-' + v.strip(), v.strip()) for v in meta.get('voices', 'George').split(',')]
     if eng == 'orpheus':
         return [('orpheus-' + v.strip(), v.strip()) for v in meta.get('voices', 'tara').split(',')]
     if eng == 'edge':
@@ -168,6 +196,8 @@ for req in sorted(glob.glob('voice/requests/*.txt')):
                 run_edge(lines, outdir, arg)
             elif eng == 'orpheus':
                 run_orpheus(lines, outdir, arg)
+            elif eng == 'elevenlabs':
+                run_elevenlabs(lines, outdir, arg, float(meta.get('speed', '1.0')))
             done += 1
         except Exception as e:
             print('FAILED', name, sub, repr(e), flush=True)
