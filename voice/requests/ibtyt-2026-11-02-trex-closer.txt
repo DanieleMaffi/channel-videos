@@ -1,9 +1,0 @@
-engine: elevenlabs
-voices: Chris
-speed: 0.95
-01|Who lived closer in time to T. rex... you, or Stegosaurus?
-02|Stegosaurus lived about one hundred fifty million years ago.
-03|T. rex showed up much later, about sixty-seven million years ago.
-04|So the gap between them is about eighty-three million years.
-05|And from T. rex to you? Sixty-seven million.
-06|T. rex lived closer to you than to Stegosaurus!
