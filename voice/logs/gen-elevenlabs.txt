@@ -1,4 +1,4 @@
-generating test-2026-11-01-chris elevenlabs-Chris
+generating ibtyt-2026-11-02-trex-closer elevenlabs-Chris
 available voices: Adam - Dominant, Firm, Alice - Clear, Engaging Educator, Bella - Professional, Bright, Warm, Bill - Wise, Mature, Balanced, Brian - Deep, Resonant and Comforting, Callum - Husky Trickster, Charlie - Deep, Confident, Energetic, Chris - Charming, Down-to-Earth, Daniel - Steady Broadcaster, Eric - Smooth, Trustworthy, George - Warm, Captivating Storyteller, Harry - Fierce Warrior, Jessica - Playful, Bright, Warm, Laura - Enthusiast, Quirky Attitude, Liam - Energetic, Social Media Creator, Lily - Velvety Actress, Matilda - Knowledgable, Professional, River - Relaxed, Neutral, Informative, Roger - Laid-Back, Casual, Resonant, Sarah - Mature, Reassuring, Confident, Will - Relaxed Optimist
-credits left: 8280, this request needs about 215
+credits left: 8065, this request needs about 334
 jobs done: 1
