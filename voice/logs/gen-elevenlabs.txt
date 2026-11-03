@@ -1,4 +1,6 @@
-generating ibtyt-2026-11-03-earth-day elevenlabs-Chris
+generating ibtyt-2026-11-03-earth-day-extra elevenlabs-Chris
 available voices: Adam - Dominant, Firm, Alice - Clear, Engaging Educator, Bella - Professional, Bright, Warm, Bill - Wise, Mature, Balanced, Brian - Deep, Resonant and Comforting, Callum - Husky Trickster, Charlie - Deep, Confident, Energetic, Chris - Charming, Down-to-Earth, Daniel - Steady Broadcaster, Eric - Smooth, Trustworthy, George - Warm, Captivating Storyteller, Harry - Fierce Warrior, Jessica - Playful, Bright, Warm, Laura - Enthusiast, Quirky Attitude, Liam - Energetic, Social Media Creator, Lily - Velvety Actress, Matilda - Knowledgable, Professional, River - Relaxed, Neutral, Informative, Roger - Laid-Back, Casual, Resonant, Sarah - Mature, Reassuring, Confident, Will - Relaxed Optimist
-credits left: 7731, this request needs about 304
-jobs done: 1
+credits left: 7427, this request needs about 85
+generating whatif-2026-11-03-fill-sun elevenlabs-Chris
+credits left: 7427, this request needs about 336
+jobs done: 2
