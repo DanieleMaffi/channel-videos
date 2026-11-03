@@ -1,0 +1,9 @@
+engine: elevenlabs
+voices: Chris
+speed: 0.95
+01|What if you tried to fill the Sun... with Earths?
+02|First, line them up. About a hundred and nine Earths fit across the Sun.
+03|To fill it up, you'd need about one point three million Earths!
+04|Dropping one every second, that's fifteen days without a break.
+05|And the very last Earth... is the one he's standing on.
+06|Maybe just leave the Sun as it is.
