@@ -1,9 +1,0 @@
-engine: elevenlabs
-voices: Chris
-speed: 0.95
-01|What if Earth's whole history fit into one day?
-02|Four and a half billion years, squeezed into twenty-four hours.
-03|Dinosaurs show up at about ten forty-seven at night.
-04|By eleven thirty-nine, they're gone.
-05|And humans? We arrive just six seconds before midnight.
-06|All of written history? The last tenth of a second.
