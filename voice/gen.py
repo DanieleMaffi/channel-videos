@@ -6,6 +6,8 @@
 #   voices: en-US-AndrewMultilingualNeural, ...   (edge: Microsoft voice names; orpheus: tara, leah, jess, leo, dan, mia, zac, zoe)
 #   refs: turbo   (chatterbox: Chatterbox-Turbo's own voice)
 #   voices: George, Brian, ...   (elevenlabs: voice names from the account, or voice ids)   speed: 1.0 (elevenlabs, 0.7-1.2)
+#   model: eleven_multilingual_v2 (default) or an expressive model (eleven_v3...)   context: yes (elevenlabs: neighbouring lines as context)
+#   line moods (elevenlabs): 01|{hook} text   with hook, fact, build, wow, fun
 #   exaggeration: 0.5   (chatterbox: expressiveness 0.25-1.0)
 #   cfg: 0.5   (chatterbox: lower = slower, more deliberate pacing; 0.3 is calm)
 #   01|First spoken line
@@ -121,7 +123,8 @@ def run_orpheus(lines, outdir, voice):
         sf.write(os.path.join(outdir, f'{i}.wav'), a, sr)
 
 el_voices = None
-def run_elevenlabs(lines, outdir, voice, speed):
+def run_elevenlabs(lines, outdir, voice, speed, model='eleven_multilingual_v2', context=False):
+    expressive = not model.startswith(('eleven_multilingual', 'eleven_turbo', 'eleven_flash', 'eleven_monolingual'))
     # ElevenLabs (paid service; free plan = non-commercial, credit "elevenlabs.io"). The key comes ONLY from the
     # GitHub secret ELEVENLABS_API_KEY; it is never printed or written anywhere.
     global el_voices
@@ -137,7 +140,7 @@ def run_elevenlabs(lines, outdir, voice, speed):
         data = json.loads(call('https://api.elevenlabs.io/v1/voices'))
         el_voices = {v['name']: v['voice_id'] for v in data.get('voices', [])}
         print('available voices:', ', '.join(sorted(el_voices)), flush=True)
-    need = sum(len(t) for _, t in lines)
+    need = sum(len(strip_mood(t)[1]) + 12 for _, t in lines)
     try:
         sub = json.loads(call('https://api.elevenlabs.io/v1/user/subscription'))
         left = int(sub.get('character_limit', 0)) - int(sub.get('character_count', 0))
@@ -147,12 +150,45 @@ def run_elevenlabs(lines, outdir, voice, speed):
     except urllib.error.HTTPError as e:
         print('credit check not allowed for this key (HTTP', e.code, '), trying anyway', flush=True)
     vid = el_voices.get(voice) or next((i for n, i in el_voices.items() if n.lower().split(' ')[0] == voice.lower()), None) or voice
-    for i, t in lines:
-        body = {'text': t, 'model_id': 'eleven_multilingual_v2', 'voice_settings': {'stability': 0.5, 'similarity_boost': 0.75, 'style': 0.0, 'use_speaker_boost': True, 'speed': speed}}
+    try:
+        models = [m.get('model_id') for m in json.loads(call('https://api.elevenlabs.io/v1/models'))]
+        print('models:', ', '.join(models), flush=True)
+    except Exception as e:
+        print('model list not available:', type(e).__name__, flush=True)
+    clean = [(i, strip_mood(t)[1]) for i, t in lines]
+    for n, (i, t) in enumerate(lines):
+        mood, text = strip_mood(t)
+        if expressive:
+            # v3-style models: the delivery is written into the text as an audio tag; stability 0.5 = "natural"
+            tag = EL_TAGS.get(mood, '')
+            body = {'text': (tag + ' ' + text).strip(), 'model_id': model, 'voice_settings': {'stability': 0.5, 'similarity_boost': 0.75, 'speed': speed}}
+        else:
+            st, sty = EL_MOODS.get(mood, (0.5, 0.0)) if mood else (0.5, 0.0)
+            body = {'text': text, 'model_id': model, 'voice_settings': {'stability': st, 'similarity_boost': 0.75, 'style': sty, 'use_speaker_boost': True, 'speed': speed}}
+            if context:
+                # the neighbouring lines, so each line is spoken as part of one story (intonation flows across lines)
+                prev = ' '.join(x for _, x in clean[max(0, n - 2):n])
+                nxt = ' '.join(x for _, x in clean[n + 1:n + 2])
+                if prev: body['previous_text'] = prev
+                if nxt: body['next_text'] = nxt
         mp3 = os.path.join(outdir, f'{i}.mp3')
-        open(mp3, 'wb').write(call(f'https://api.elevenlabs.io/v1/text-to-speech/{vid}?output_format=mp3_44100_128', body))
+        try:
+            open(mp3, 'wb').write(call(f'https://api.elevenlabs.io/v1/text-to-speech/{vid}?output_format=mp3_44100_128', body))
+        except urllib.error.HTTPError as e:
+            raise RuntimeError(f'ElevenLabs HTTP {e.code}: {e.read()[:300]!r}')
         subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', mp3, '-ar', '44100', '-ac', '1', os.path.join(outdir, f'{i}.wav')], check=True)
         os.remove(mp3)
+
+# Delivery per line: a line may start with a mood in braces, e.g. "03|{wow} Thirty Earths!".
+#   hook = curious question, fact = calm and clear, build = rising tension, wow = excited payoff, fun = playful
+# multilingual_v2: mood -> (stability, style); lower stability + higher style = more expressive.
+EL_MOODS = {'hook': (0.40, 0.35), 'fact': (0.55, 0.10), 'build': (0.45, 0.30), 'wow': (0.30, 0.60), 'fun': (0.35, 0.45)}
+# v3-style models: mood -> audio tag written before the line
+EL_TAGS = {'hook': '[curious]', 'fact': '', 'build': '[intrigued]', 'wow': '[excited]', 'fun': '[playful]'}
+def strip_mood(t):
+    import re
+    m = re.match(r'\s*\{(\w+)\}\s*(.*)', t)
+    return (m.group(1).lower(), m.group(2)) if m else ('', t)
 
 def run_edge(lines, outdir, voice):
     for i, t in lines:
@@ -206,7 +242,7 @@ for req in sorted(glob.glob('voice/requests/*.txt')):
             elif eng == 'orpheus':
                 run_orpheus(lines, outdir, arg)
             elif eng == 'elevenlabs':
-                run_elevenlabs(lines, outdir, arg, float(meta.get('speed', '1.0')))
+                run_elevenlabs(lines, outdir, arg, float(meta.get('speed', '1.0')), meta.get('model', 'eleven_multilingual_v2'), meta.get('context', 'no').lower() in ('yes', 'true', '1'))
             done += 1
         except Exception as e:
             print('FAILED', name, sub, repr(e), flush=True)
