@@ -1,9 +1,0 @@
-engine: elevenlabs
-voices: Chris
-speed: 0.95
-01|What if you stood with one foot on each tectonic plate?
-02|The plates drift apart about two and a half centimeters a year.
-03|That's even slower than your fingernails grow!
-04|Want a full split? You'd wait about sixty years.
-05|Keep going for two hundred million years, and you get a whole ocean.
-06|Maybe next time, just pick one side.
