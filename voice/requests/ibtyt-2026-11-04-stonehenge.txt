@@ -1,8 +1,0 @@
-engine: elevenlabs
-voices: Chris
-speed: 0.95
-01|How heavy is one stone at Stonehenge?
-02|The big ones weigh about twenty five tonnes. That's four elephants!
-03|The smaller bluestones came from Wales, about two hundred and twenty five kilometres away.
-04|But one stone travelled much farther.
-05|The six tonne Altar Stone came from Scotland, over seven hundred kilometres away!
