@@ -1,0 +1,8 @@
+engine: elevenlabs
+voices: Chris
+speed: 0.95
+01|Fold one sheet of paper forty-two times. How thick would it get?
+02|Every fold doubles it. Ten folds: about ten centimetres.
+03|Twenty-three folds: about eight hundred forty metres. Taller than the tallest building on Earth!
+04|And forty-two folds?
+05|About four hundred forty thousand kilometres. Past the Moon!
