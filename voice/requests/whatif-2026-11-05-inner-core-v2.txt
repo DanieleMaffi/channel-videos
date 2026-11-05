@@ -1,0 +1,11 @@
+engine: elevenlabs
+voices: Chris
+speed: 0.95
+01|What if you pulled out the Earth's inner core?
+02|Just crack the planet open... and out it floats!
+03|It's a solid ball of metal, about two thousand four hundred kilometers wide.
+04|That's about the same size as Pluto!
+05|But it's heavier than the whole Moon... about one and a third Moons.
+06|Stand on it, and you'd weigh less than half as much.
+07|One small problem... it's hotter than lava!
+08|Better put it back where we found it.
