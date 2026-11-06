@@ -1,0 +1,10 @@
+engine: elevenlabs
+voices: Chris
+speed: 0.95
+01|What if you had a chameleon's tongue?
+02|Scale up a tiny chameleon, and your tongue would shoot out four point three meters!
+03|That's two and a half times your own height.
+04|And it goes from zero to ninety-seven kilometers an hour in a hundredth of a second.
+05|That's a push of two hundred and sixty-four times gravity!
+06|The only problem? Instant brain freeze.
+07|Good thing his friend packs a spare scoop.
