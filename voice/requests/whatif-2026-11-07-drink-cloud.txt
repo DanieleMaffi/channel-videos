@@ -1,0 +1,10 @@
+engine: elevenlabs
+voices: Chris
+speed: 0.95
+01|What if you drank a whole cloud?
+02|A small puffy cloud is about one kilometer wide.
+03|It holds about five hundred tonnes of water...
+04|as heavy as a hundred elephants!
+05|At two liters a day, that's about six hundred eighty-five years of sipping.
+06|And when you finally finish... it rains right back.
+07|The water cycle always wins.
