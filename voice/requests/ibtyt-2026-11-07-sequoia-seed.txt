@@ -1,8 +1,0 @@
-engine: elevenlabs
-voices: Chris
-speed: 0.95
-01|This tiny seed grows into the biggest tree on Earth.
-02|The largest giant sequoia stands eighty-four meters tall.
-03|Its trunk alone weighs as much as fifteen blue whales.
-04|That's enough wood to build about one hundred twenty houses.
-05|Its trunk is two hundred fifty billion times heavier than its seed.
