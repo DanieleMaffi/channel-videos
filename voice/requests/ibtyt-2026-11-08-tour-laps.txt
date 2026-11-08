@@ -1,0 +1,9 @@
+engine: elevenlabs
+voices: Chris
+speed: 0.95
+01|How many laps of a running track is the Tour de France?
+02|One lap of the track is four hundred metres.
+03|A marathon? About a hundred and five laps.
+04|The Tour de France covers about seventy-nine marathons.
+05|That's almost four marathons every racing day, for three weeks.
+06|In total? About eight thousand three hundred laps!
