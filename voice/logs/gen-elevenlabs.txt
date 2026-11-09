@@ -1,5 +1,5 @@
-generating ibtyt-2026-11-08-tour-laps elevenlabs-Chris
+generating ibtyt-2026-11-09-station-speed elevenlabs-Chris
 available voices: Adam - Dominant, Firm, Alice - Clear, Engaging Educator, Bella - Professional, Bright, Warm, Bill - Wise, Mature, Balanced, Brian - Deep, Resonant and Comforting, Callum - Husky Trickster, Charlie - Deep, Confident, Energetic, Chris - Charming, Down-to-Earth, Daniel - Steady Broadcaster, Eric - Smooth, Trustworthy, George - Warm, Captivating Storyteller, Harry - Fierce Warrior, Jessica - Playful, Bright, Warm, Laura - Enthusiast, Quirky Attitude, Liam - Energetic, Social Media Creator, Lily - Velvety Actress, Matilda - Knowledgable, Professional, River - Relaxed, Neutral, Informative, Roger - Laid-Back, Casual, Resonant, Sarah - Mature, Reassuring, Confident, Will - Relaxed Optimist
-credits left: 2353, this request needs about 381
+credits left: 2044, this request needs about 426
 models: eleven_v4, eleven_v4_turbo, eleven_v3, eleven_v3_conversational, eleven_multilingual_v2, eleven_flash_v2_5, eleven_turbo_v2_5, eleven_turbo_v2, eleven_flash_v2, eleven_english_sts_v2, eleven_multilingual_sts_v2
 jobs done: 1
