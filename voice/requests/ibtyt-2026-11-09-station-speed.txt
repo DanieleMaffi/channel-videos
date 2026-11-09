@@ -1,9 +1,0 @@
-engine: elevenlabs
-voices: Chris
-speed: 0.95
-01|How fast is the space station? Let's race it against a jet.
-02|A passenger jet cruises at about nine hundred kilometres an hour.
-03|The station covers eight kilometres every second. About thirty times faster.
-04|London to New York? About twelve minutes.
-05|One full lap around the whole Earth takes just ninety minutes.
-06|So the crew sees sixteen sunrises every single day.
