@@ -1,4 +1,0 @@
-engine: elevenlabs
-voices: Chris
-speed: 0.95
-07|And that is the slowest chat on Earth.
