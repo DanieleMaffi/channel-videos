@@ -1,8 +1,0 @@
-engine: elevenlabs
-voices: Chris
-speed: 0.95
-01|A hummingbird egg versus an ostrich egg. How many tiny ones make one giant?
-02|A hummingbird egg is barely over one centimetre long, and weighs about half a gram.
-03|One chicken egg? That's about a hundred and ten hummingbird eggs.
-04|And one ostrich egg weighs as much as twenty-five chicken eggs.
-05|So one ostrich egg equals about two thousand eight hundred hummingbird eggs!
