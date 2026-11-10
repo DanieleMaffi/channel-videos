@@ -1,0 +1,10 @@
+engine: elevenlabs
+voices: Chris
+speed: 0.95
+01|What if you sent a quake wave... straight through the Earth?
+02|One giant stomp, and a wave races down into the planet.
+03|About six kilometers per second in the crust... and thirteen, deep down.
+04|Then the liquid core slows it to about eight.
+05|Twenty minutes later, it reaches the other side!
+06|His friend stomps back. Another twenty minutes.
+07|The slowest chat on Earth.
