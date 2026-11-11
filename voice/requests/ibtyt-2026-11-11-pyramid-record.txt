@@ -1,8 +1,0 @@
-engine: elevenlabs
-voices: Chris
-speed: 0.95
-01|The Great Pyramid was the tallest thing on Earth. For how long?
-02|It once stood about one hundred forty-seven meters tall.
-03|And nothing built by people beat it for over three thousand eight hundred years.
-04|The Eiffel Tower? It held the record for just forty-one years.
-05|To match the pyramid, today's tallest tower would have to stay on top until around the year five thousand eight hundred.
