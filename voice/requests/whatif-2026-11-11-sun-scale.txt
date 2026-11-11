@@ -1,9 +1,0 @@
-engine: elevenlabs
-voices: Chris
-speed: 0.95
-01|What if you weighed yourself... on the Sun?
-02|The Sun pulls about twenty-eight times harder than the Earth.
-03|So if you weigh seventy kilos here, the scale says nearly two thousand!
-04|And a fifty centimeter jump? On the Sun, just two centimeters.
-05|Even the scale gives up.
-06|Okay... back to Earth. Much better.
