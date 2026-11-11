@@ -1,0 +1,8 @@
+engine: elevenlabs
+voices: Chris
+speed: 0.95
+01|How long was the Great Pyramid the tallest building?
+02|About a hundred forty-seven meters high.
+03|Nothing beat it for over thirty-eight hundred years.
+04|The Eiffel Tower? Forty-one years.
+05|Today's tallest would have to last until the year fifty-eight hundred.
