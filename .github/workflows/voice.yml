@@ -63,5 +63,7 @@ jobs:
           for f in voice/logs/*.txt; do tail -c 20000 "$f" > "$f.tail" && mv "$f.tail" "$f"; done
           git config user.name voice-bot
           git config user.email voice-bot@users.noreply.github.com
-          git add voice/out voice/logs 2>/dev/null || true
+          python voice/gen.py --cleanup || true
+          git add -A voice/out voice/logs voice/requests 2>/dev/null || true
+          git add voice/status.json 2>/dev/null || true
           git diff --cached --quiet || (git commit -m "voice: ${{ matrix.engine }} output and log" && git pull --rebase -q && git push)
