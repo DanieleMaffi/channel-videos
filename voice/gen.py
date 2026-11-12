@@ -13,6 +13,12 @@
 #   01|First spoken line
 #   02|Second spoken line
 # Output: voice/out/<name>/<engine>/<id>.wav (24 kHz mono). The daily run downloads them and trims/normalises.
+# ElevenLabs credits: every elevenlabs run writes voice/status.json (credits left, reset date, characters used per
+#   channel in this billing cycle) so the daily runs can check the credits BEFORE asking for a narration.
+#   The channel is the request name up to the first "-" (trivia-2026-11-12-gutenberg -> trivia).
+#   Optional voice/budget.json, e.g. {"ibtyt": 4000, "whatif": 3000, "trivia": 3000}: characters each channel may use
+#   per billing cycle; a channel over its budget is refused (its video falls back to George). No file = no budgets.
+# python voice/gen.py --cleanup removes dated requests (<channel>-YYYY-MM-DD-<slug>) and their output after two days.
 # Licences: XTTS-v2 (Coqui Public Model License) and the F5-TTS pretrained model (CC BY-NC) are NON-COMMERCIAL:
 # only for channels that are not monetized. Chatterbox (Resemble AI) is MIT: free also for commercial use.
 # Edge voices use Microsoft's online read-aloud service via edge-tts (unofficial, no key).
@@ -122,6 +128,31 @@ def run_orpheus(lines, outdir, voice):
             a = a.astype(np.float32) / 32768.0
         sf.write(os.path.join(outdir, f'{i}.wav'), a, sr)
 
+STATUS = 'voice/status.json'
+CURRENT = ''   # name of the request being generated
+def channel_of(name):
+    return name.split('-')[0]
+
+def load_json(path, default):
+    import json
+    try:
+        return json.load(open(path, encoding='utf-8'))
+    except Exception:
+        return default
+
+def save_status(left, limit, reset, spent=0):
+    # Never holds anything secret: only counts and dates.
+    import json, time
+    st = load_json(STATUS, {})
+    used = st.get('used', {}) if st.get('reset_unix') == reset else {}
+    if spent:
+        ch = channel_of(CURRENT)
+        used[ch] = int(used.get(ch, 0)) + spent
+    st = {'left': left, 'limit': limit, 'reset_unix': reset, 'checked_at': time.strftime('%Y-%m-%d %H:%M UTC', time.gmtime()),
+          'used': used, 'budgets': load_json('voice/budget.json', {})}
+    json.dump(st, open(STATUS, 'w', encoding='utf-8'), indent=1)
+    return st
+
 el_voices = None
 def run_elevenlabs(lines, outdir, voice, speed, model='eleven_multilingual_v2', context=False):
     expressive = not model.startswith(('eleven_multilingual', 'eleven_turbo', 'eleven_flash', 'eleven_monolingual'))
@@ -141,12 +172,20 @@ def run_elevenlabs(lines, outdir, voice, speed, model='eleven_multilingual_v2', 
         el_voices = {v['name']: v['voice_id'] for v in data.get('voices', [])}
         print('available voices:', ', '.join(sorted(el_voices)), flush=True)
     need = sum(len(strip_mood(t)[1]) + 12 for _, t in lines)
+    left = limit = reset = None
     try:
         sub = json.loads(call('https://api.elevenlabs.io/v1/user/subscription'))
-        left = int(sub.get('character_limit', 0)) - int(sub.get('character_count', 0))
+        limit = int(sub.get('character_limit', 0))
+        left = limit - int(sub.get('character_count', 0))
+        reset = int(sub.get('next_character_count_reset_unix') or 0)
         print(f'credits left: {left}, this request needs about {need}', flush=True)
+        st = save_status(left, limit, reset)
         if left < need + 20:
             raise RuntimeError(f'not enough ElevenLabs credits ({left} left, {need} needed)')
+        ch = channel_of(CURRENT)
+        budget = st['budgets'].get(ch)
+        if budget is not None and int(st['used'].get(ch, 0)) + need > int(budget):
+            raise RuntimeError(f'channel {ch} is over its ElevenLabs budget ({st["used"].get(ch, 0)} used of {budget}, {need} needed)')
     except urllib.error.HTTPError as e:
         print('credit check not allowed for this key (HTTP', e.code, '), trying anyway', flush=True)
     vid = el_voices.get(voice) or next((i for n, i in el_voices.items() if n.lower().split(' ')[0] == voice.lower()), None) or voice
@@ -178,6 +217,9 @@ def run_elevenlabs(lines, outdir, voice, speed, model='eleven_multilingual_v2', 
             raise RuntimeError(f'ElevenLabs HTTP {e.code}: {e.read()[:300]!r}')
         subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', mp3, '-ar', '44100', '-ac', '1', os.path.join(outdir, f'{i}.wav')], check=True)
         os.remove(mp3)
+    if left is not None:
+        spent = sum(len(t) for _, t in clean)
+        save_status(left - spent, limit, reset, spent)
 
 # Delivery per line: a line may start with a mood in braces, e.g. "03|{wow} Thirty Earths!".
 #   hook = curious question, fact = calm and clear, build = rising tension, wow = excited payoff, fun = playful
@@ -210,6 +252,28 @@ def targets(eng, meta):
         return [('edge-' + v.strip(), v.strip()) for v in meta.get('voices', 'en-US-AndrewMultilingualNeural').split(',')]
     return [(eng, None)]
 
+def cleanup(days=2):
+    # dated requests (<channel>-YYYY-MM-DD-<slug>) and their output are removed after two days; test requests stay
+    import datetime, re, shutil
+    limit = datetime.date.today() - datetime.timedelta(days=days)
+    n = 0
+    for req in glob.glob('voice/requests/*.txt'):
+        name = os.path.splitext(os.path.basename(req))[0]
+        m = re.match(r'[a-z0-9]+-(\d{4})-(\d{2})-(\d{2})(-|$)', name)
+        try:
+            old = bool(m) and datetime.date(int(m.group(1)), int(m.group(2)), int(m.group(3))) < limit
+        except ValueError:
+            old = False
+        if old:
+            os.remove(req)
+            shutil.rmtree(os.path.join('voice', 'out', name), ignore_errors=True)
+            n += 1
+    print('removed', n, 'old request(s)')
+
+if len(sys.argv) > 1 and sys.argv[1] == '--cleanup':
+    cleanup()
+    sys.exit(0)
+
 CHECK_ONLY = len(sys.argv) > 1 and sys.argv[1] == '--pending'   # prints how many outputs are missing, generates nothing
 pending = 0
 done = 0
@@ -230,6 +294,7 @@ for req in sorted(glob.glob('voice/requests/*.txt')):
             continue
         os.makedirs(outdir, exist_ok=True)
         print('generating', name, sub, flush=True)
+        CURRENT = name
         try:
             if eng == 'xtts':
                 run_xtts(lines, outdir, arg)
