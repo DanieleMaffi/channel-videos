@@ -1,5 +1,5 @@
-generating ibtyt-2026-11-13-saffron-flowers elevenlabs-Chris
+generating whatif-2026-11-13-orbit-sunrises elevenlabs-Chris
 available voices: Adam - Dominant, Firm, Alice - Clear, Engaging Educator, Bella - Professional, Bright, Warm, Bill - Wise, Mature, Balanced, Brian - Deep, Resonant and Comforting, Callum - Husky Trickster, Charlie - Deep, Confident, Energetic, Chris - Charming, Down-to-Earth, Daniel - Steady Broadcaster, Eric - Smooth, Trustworthy, George - Warm, Captivating Storyteller, Harry - Fierce Warrior, Jessica - Playful, Bright, Warm, Laura - Enthusiast, Quirky Attitude, Liam - Energetic, Social Media Creator, Lily - Velvety Actress, Matilda - Knowledgable, Professional, River - Relaxed, Neutral, Informative, Roger - Laid-Back, Casual, Resonant, Sarah - Mature, Reassuring, Confident, Will - Relaxed Optimist
-credits left: 86, this request needs about 371
-FAILED ibtyt-2026-11-13-saffron-flowers elevenlabs-Chris RuntimeError('not enough ElevenLabs credits (86 left, 371 needed)')
+credits left: 86, this request needs about 405
+FAILED whatif-2026-11-13-orbit-sunrises elevenlabs-Chris RuntimeError('not enough ElevenLabs credits (86 left, 405 needed)')
 jobs done: 0
