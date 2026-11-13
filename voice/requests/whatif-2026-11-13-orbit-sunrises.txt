@@ -1,9 +1,0 @@
-engine: elevenlabs
-voices: Chris
-speed: 0.95
-01|What if you circled the Earth as fast as the space station?
-02|You'd be flying at twenty-eight thousand kilometers an hour!
-03|That's one whole lap of the planet in about ninety minutes.
-04|So in just one day, you'd see sixteen sunrises.
-05|Trying to get some sleep? Too bad. The Sun is already back.
-06|Good morning... again! Maybe walk home next time.
