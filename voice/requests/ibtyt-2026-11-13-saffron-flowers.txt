@@ -1,0 +1,8 @@
+engine: elevenlabs
+voices: Chris
+speed: 0.95
+01|How many flowers does it take to make one kilo of saffron?
+02|Each little flower gives just three red threads.
+03|One gram of saffron needs about one hundred fifty flowers.
+04|One kilo? About one hundred fifty thousand flowers, all picked by hand.
+05|Pick one every second, nonstop, and it would take you about forty two hours.
