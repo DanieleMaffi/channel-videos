@@ -1,0 +1,10 @@
+engine: elevenlabs
+voices: Chris
+speed: 0.95
+01|What if you dug deep enough to boil water?
+02|Every kilometer down, the rock gets about twenty five degrees hotter.
+03|One kilometer down, it's already as hot as a hot tub.
+04|About three point four kilometers down, it hits a hundred degrees. Water boils!
+05|That's deeper than four Burj Khalifas stacked up.
+06|Free tea, straight from the planet!
+07|Who wants a cup?
