@@ -1,0 +1,8 @@
+engine: elevenlabs
+voices: Chris
+speed: 0.95
+01|How heavy is a million dollars?
+02|In hundred dollar bills, about ten kilograms. Easy to carry.
+03|In one dollar bills, a whole tonne. As heavy as a small car!
+04|So what about a trillion dollars, in hundred dollar bills?
+05|About ten thousand tonnes. As heavy as the Eiffel Tower!
