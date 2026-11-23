@@ -1,8 +1,0 @@
-engine: elevenlabs
-voices: Chris
-speed: 0.95
-01|A newborn giraffe. Is it taller than you?
-02|On day one, it already stands about one point eight metres. Grown-up height.
-03|Its dad can reach five and a half metres. That's three people stacked up.
-04|Its neck alone is one point eight metres long, and weighs about two hundred seventy kilos.
-05|Yet it holds just seven bones. Exactly as many as your neck.
